@@ -1,0 +1,1741 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Storytelling | Abdelrahman Ahmed</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-pages.css">
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
+<style>
+:root {
+    --yellow:#FFD21F;
+    --bg:#080808;
+    --surface:#141414;
+    --line:#292929;
+    --muted:#999;
+}
+
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:110px;
+}
+
+body { overflow-x:hidden; }
+
+header {
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,8,.96);
+    backdrop-filter:blur(14px);
+}
+
+.logo {
+    width:85px;
+    height:65px;
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.logo img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+header {
+    height:90px;
+    min-height:90px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,8,.96);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(14px);
+}
+
+header nav {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+}
+
+header nav a {
+    color:#AAAAAA;
+    font-size:13px;
+    font-weight:600;
+    transition:color .25s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+    color:var(--yellow);
+}
+
+.contact-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    color:var(--yellow);
+    border:1px solid var(--yellow);
+    padding:14px 20px;
+    font-size:12px;
+    font-weight:800;
+    transition:background .25s ease,color .25s ease;
+}
+
+.contact-link:hover {
+    background:var(--yellow);
+    color:var(--bg);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline:2px solid var(--yellow);
+    outline-offset:4px;
+}
+
+.menu-toggle,
+.mobile-contact-bar {
+    display:none;
+}
+
+.page-hero { padding-bottom:48px; }
+.page-hero h1 span { color:var(--yellow); }
+.page-hero p { max-width:760px; }
+
+.brand-navigation { padding:10px 8% 25px; }
+
+.brand-navigation-inner {
+    max-width:1450px;
+    margin:auto;
+}
+
+.brand-navigation .eyebrow,
+.brand-heading .eyebrow {
+    color:var(--yellow);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:16px;
+}
+
+.brand-index {
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.brand-index a {
+    border:1px solid #333;
+    padding:11px 14px;
+    color:#aaa;
+    font-size:10px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.brand-index a:hover,
+.brand-index a.active {
+    color:#080808;
+    background:var(--yellow);
+    border-color:var(--yellow);
+}
+
+.brands-container { padding:0 8% 90px; }
+
+.brand-section {
+    max-width:1450px;
+    margin:auto;
+    padding:58px 0 65px;
+    border-bottom:1px solid var(--line);
+    scroll-margin-top:110px;
+}
+
+.brand-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:25px;
+    margin-bottom:28px;
+}
+
+.brand-heading h2 {
+    color:#fff;
+    font-size:clamp(30px,4vw,48px);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-2px;
+}
+
+.brand-heading p {
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.9;
+    max-width:760px;
+    margin-top:13px;
+}
+
+.brand-count {
+    color:var(--yellow);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    padding-bottom:5px;
+}
+
+.gallery-grid {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:22px;
+    align-items:start;
+}
+
+.brand-section[data-brand="el-sherif-travel"] .gallery-grid {
+    grid-template-columns:repeat(5,minmax(0,1fr));
+}
+
+.gallery-item {
+    min-width:0;
+    background:var(--surface);
+    border:1px solid var(--line);
+    overflow:hidden;
+    cursor:zoom-in;
+    transition:transform .3s,border-color .3s;
+}
+
+.gallery-item:hover {
+    transform:translateY(-5px);
+    border-color:var(--yellow);
+}
+
+.gallery-visual {
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.gallery-image {
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    transition:transform .45s;
+}
+
+.gallery-item:hover .gallery-image {
+    transform:none;
+}
+
+.gallery-image.image-missing {
+    object-fit:contain;
+    padding:20px;
+    color:#aaa;
+}
+
+.gallery-caption { padding:18px 19px 20px; }
+
+.gallery-caption span {
+    display:block;
+    color:var(--yellow);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    margin-bottom:9px;
+}
+
+.gallery-caption h3 {
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+    line-height:1.45;
+}
+
+.lightbox {
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:55px 80px 75px;
+    background:rgba(0,0,0,.96);
+}
+
+.lightbox.open { display:flex; }
+
+.lightbox-content {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+}
+
+.lightbox img {
+    max-width:min(78vw,850px);
+    max-height:78vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+}
+
+.lightbox-caption { text-align:center; }
+
+.lightbox-caption span {
+    display:block;
+    color:var(--yellow);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:7px;
+}
+
+.lightbox-caption h3 {
+    color:#fff;
+    font-size:16px;
+}
+
+.lightbox-count {
+    color:#888;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.lightbox button {
+    position:absolute;
+    display:grid;
+    place-items:center;
+    width:46px;
+    height:46px;
+    border:1px solid #444;
+    border-radius:50%;
+    background:rgba(15,15,15,.8);
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.lightbox button:hover {
+    background:var(--yellow);
+    border-color:var(--yellow);
+    color:#080808;
+}
+
+.lightbox-close {
+    top:22px;
+    right:28px;
+    font-size:28px!important;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.lightbox-prev { left:25px; }
+.lightbox-next { right:25px; }
+
+/* CLOSING SECTION */
+
+.next-section {
+    padding:85px 8%;
+    background:#080808;
+    color:#FFFFFF;
+    text-align:center;
+    border-top:1px solid var(--line);
+}
+
+.next-section h2 {
+    color:#FFFFFF;
+    font-size:clamp(40px,6vw,70px);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-2px;
+    margin:0;
+}
+
+.next-section h2 span {
+    color:var(--yellow);
+}
+
+.next-section a {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow);
+    color:#080808;
+    padding:16px 30px;
+    min-width:280px;
+    margin-top:32px;
+    font-size:12px;
+    font-weight:900;
+    transition:transform .25s,background .25s;
+}
+
+.next-section a:hover {
+    transform:translateY(-3px);
+    background:#FFFFFF;
+}
+
+@media(max-width:1100px) {
+    .gallery-grid {
+        grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+}
+
+@media(max-width:900px) {
+    .gallery-grid,
+    .brand-section[data-brand="el-sherif-travel"] .gallery-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:750px) {
+
+    html {
+        scroll-padding-top:85px;
+    }
+
+    body {
+        padding-bottom:78px;
+    }
+
+    /* HEADER */
+
+    header {
+        height:68px;
+        min-height:68px;
+        padding:8px 5%;
+        flex-wrap:nowrap;
+        gap:12px;
+        overflow:visible;
+    }
+
+    .logo {
+        width:48px;
+        height:45px;
+    }
+
+    .contact-link {
+        display:none;
+    }
+
+    .menu-toggle {
+        display:flex;
+        width:40px;
+        height:40px;
+        margin-left:auto;
+        padding:8px;
+        border:0;
+        background:transparent;
+        cursor:pointer;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .menu-toggle span {
+        display:block;
+        width:22px;
+        height:2px;
+        border-radius:2px;
+        background:#FFFFFF;
+        transition:transform .25s,opacity .25s;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform:translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity:0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform:translateY(-7px) rotate(-45deg);
+    }
+
+    /* DROPDOWN NAVIGATION */
+
+    header nav {
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        left:5%;
+        right:5%;
+        width:auto;
+        margin:0;
+        padding:8px;
+        flex-direction:column;
+        align-items:stretch;
+        justify-content:flex-start;
+        gap:0;
+        background:#121212;
+        border:1px solid #303030;
+        border-radius:15px;
+        box-shadow:0 16px 35px rgba(0,0,0,.48);
+        z-index:130;
+    }
+
+    header nav.open {
+        display:flex;
+    }
+
+    header nav a {
+        display:block;
+        width:100%;
+        padding:14px;
+        border-bottom:1px solid #292929;
+        color:#B8B8B8;
+        font-size:13px;
+        font-weight:600;
+    }
+
+    header nav a:last-child {
+        border-bottom:0;
+    }
+
+    header nav a.active {
+        color:var(--yellow);
+        background:rgba(255,210,31,.07);
+        border-radius:8px;
+    }
+
+    /* HERO */
+
+    .page-hero {
+        padding:55px 6% 40px;
+    }
+
+    .page-hero h1 {
+        font-size:clamp(46px,11vw,62px);
+        letter-spacing:-2.5px;
+        line-height:1.04;
+        margin-bottom:20px;
+    }
+
+    .page-hero p {
+        font-size:13px;
+        line-height:1.85;
+    }
+
+    /* BRAND NAVIGATION */
+
+    .brand-navigation {
+        padding:28px 6% 10px;
+    }
+
+    .brand-navigation .eyebrow {
+        margin-bottom:15px;
+    }
+
+    .brand-index {
+        display:flex;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        gap:8px;
+        padding-bottom:12px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .brand-index::-webkit-scrollbar {
+        display:none;
+    }
+
+    .brand-index a {
+        flex:0 0 auto;
+        padding:10px 13px;
+        font-size:10px;
+        border-radius:30px;
+        background:#101010;
+        white-space:nowrap;
+    }
+
+    /* BRAND CONTAINER */
+
+    .brands-container {
+        padding:10px 6% 45px;
+    }
+
+    .brand-section {
+        padding:40px 0 40px;
+        scroll-margin-top:82px;
+    }
+
+    .brand-heading {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+        margin-bottom:20px;
+    }
+
+    .brand-heading .eyebrow {
+        font-size:10px;
+        margin-bottom:10px;
+    }
+
+    .brand-heading h2 {
+        font-size:32px;
+        letter-spacing:-1.5px;
+        line-height:1.15;
+    }
+
+    .brand-heading p {
+        font-size:13px;
+        line-height:1.8;
+        margin-top:12px;
+    }
+
+    .brand-count {
+        padding:0;
+        font-size:10px;
+        letter-spacing:1.8px;
+    }
+
+    /* MOBILE-ONLY HORIZONTAL POST CAROUSEL */
+
+    .gallery-grid,
+    .brand-section[data-brand="el-sherif-travel"] .gallery-grid {
+        display:flex;
+        flex-wrap:nowrap;
+        gap:12px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        padding:0 1px 12px;
+        scroll-snap-type:x mandatory;
+        scroll-padding-inline:1px;
+        scroll-behavior:smooth;
+        scrollbar-width:none;
+        -ms-overflow-style:none;
+        -webkit-overflow-scrolling:touch;
+        overscroll-behavior-x:contain;
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+        display:none;
+    }
+
+    .gallery-item {
+        flex:0 0 calc((100% - 12px) / 2);
+        width:calc((100% - 12px) / 2);
+        scroll-snap-align:start;
+        scroll-snap-stop:always;
+    }
+
+    /* CLOSING SECTION */
+
+    .next-section {
+        padding:75px 6% 85px;
+    }
+
+    .next-section h2 {
+        font-size:clamp(36px,9vw,44px);
+        letter-spacing:-1.8px;
+        line-height:1.12;
+    }
+
+    .next-section a {
+        display:flex;
+        width:100%;
+        max-width:340px;
+        min-width:0;
+        min-height:52px;
+        margin:27px auto 0;
+        border-radius:9px;
+        font-size:12px;
+    }
+
+    /* FIXED MOBILE CONTACT */
+
+    .mobile-contact-bar {
+        display:flex;
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:950;
+        padding:8px 5% calc(8px + env(safe-area-inset-bottom));
+        background:rgba(9,9,9,.97);
+        border-top:1px solid var(--line);
+        backdrop-filter:blur(14px);
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+        transition:opacity .3s ease,visibility .3s ease,transform .3s ease;
+    }
+
+    .mobile-contact-bar a {
+        display:flex;
+        width:100%;
+        min-height:49px;
+        align-items:center;
+        justify-content:center;
+        background:var(--yellow);
+        color:#080808;
+        border-radius:9px;
+        font-size:13px;
+        font-weight:900;
+    }
+
+    .mobile-contact-bar.is-hidden {
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(110%);
+        pointer-events:none;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+@media(max-width:520px) {
+    .logo {
+        width:48px;
+        height:45px;
+    }
+
+    .gallery-grid {
+        gap:12px;
+    }
+
+    .gallery-caption { padding:12px; }
+    .gallery-caption h3 { font-size:11px; }
+    .gallery-caption span { font-size:8px; }
+
+    .brand-section { padding:45px 0 50px; }
+
+    .lightbox { padding:55px 12px 70px; }
+
+    .lightbox img {
+        max-width:88vw;
+        max-height:72vh;
+    }
+
+    .lightbox button {
+        width:38px;
+        height:38px;
+    }
+
+    .lightbox-close {
+        top:12px;
+        right:12px;
+    }
+
+    .lightbox-prev { left:7px; }
+    .lightbox-next { right:7px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="portfolio.html" class="logo">
+        <img src="pic/af.png" alt="AF Logo">
+    </a>
+
+    <nav id="mobileNav">
+        <a href="portfolio.html">Home</a>
+        <a href="posts.html" class="active">Posts</a>
+        <a href="videos.html">Reels</a>
+        <a href="campaigns.html">Campaigns</a>
+        <a href="personal-branding.html">My Personal Branding</a>
+    </nav>
+
+    <a href="portfolio.html#contact" class="contact-link">LET'S TALK ↗</a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mobileNav"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<main>
+
+<section class="page-hero">
+    <div class="eyebrow">01 / SELECTED WORK</div>
+    <h1>Visual<br><span>Storytelling</span></h1>
+    <p>
+        A selection of social media visuals created for different brands,
+        combining product storytelling, creative direction, and audience-focused design.
+    </p>
+</section>
+
+<section class="brand-navigation">
+    <div class="brand-navigation-inner">
+        <div class="eyebrow">EXPLORE BY BRAND</div>
+        <div class="brand-index" id="brandIndex"></div>
+    </div>
+</section>
+
+<div class="brands-container" id="brandsContainer"></div>
+
+<section class="next-section">
+    <h2>
+        More Than Just Posts<br>
+        <span>Ideas Worth Sharing</span>
+    </h2>
+    <a href="portfolio.html#contact" class="closing-cta">LET'S TALK ↗</a>
+</section>
+
+</main>
+
+<footer>
+    <strong>ABDELRAHMAN AHMED</strong>
+    <span>CONTENT CREATOR · COPYWRITER · CONTENT STRATEGIST</span>
+    <span>© 2026</span>
+</footer>
+
+<div class="mobile-contact-bar">
+    <a href="portfolio.html#contact">LET'S TALK ↗</a>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <button class="lightbox-prev" id="lightboxPrev">‹</button>
+
+    <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="">
+
+        <div class="lightbox-caption">
+            <span id="lightboxCategory"></span>
+            <h3 id="lightboxTitle"></h3>
+        </div>
+
+        <div class="lightbox-count" id="lightboxCount"></div>
+    </div>
+
+    <button class="lightbox-next" id="lightboxNext">›</button>
+</div>
+
+<script>
+
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+function closeMobileMenu() {
+    mobileNav.classList.remove("open");
+
+    menuToggle.setAttribute("aria-expanded","false");
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
+}
+
+menuToggle.addEventListener("click", () => {
+    const isOpen = mobileNav.classList.toggle("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+});
+
+mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("click", event => {
+    if (
+        !mobileNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ) {
+        closeMobileMenu();
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeMobileMenu();
+    }
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 750) {
+        closeMobileMenu();
+    }
+});
+
+/* =====================================
+   UNIVERSAL IMAGE LOADER
+===================================== */
+
+const IMAGE_EXTENSIONS = [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".webp",
+    ".avif",
+    ".jfif",
+    ".heic",
+    ".heif"
+];
+
+function loadImageElement(img, url) {
+    return new Promise((resolve, reject) => {
+        img.onload = () => resolve(true);
+
+        img.onerror = () => reject(
+            new Error("Unable to load: " + url)
+        );
+
+        img.src = url;
+    });
+}
+
+async function convertHeicToJpg(img, filePath) {
+    if (typeof window.heic2any !== "function") {
+        throw new Error("HEIC converter library is unavailable.");
+    }
+
+    const response = await fetch(filePath);
+
+    if (!response.ok) {
+        throw new Error("HEIC file not found: " + filePath);
+    }
+
+    const originalBlob = await response.blob();
+
+    const convertedResult = await window.heic2any({
+        blob: originalBlob,
+        toType: "image/jpeg",
+        quality: 0.92
+    });
+
+    const convertedBlob = Array.isArray(convertedResult)
+        ? convertedResult[0]
+        : convertedResult;
+
+    const objectURL = URL.createObjectURL(convertedBlob);
+
+    try {
+        await loadImageElement(img, objectURL);
+
+        img.dataset.objectUrl = objectURL;
+
+        return true;
+
+    } catch(error) {
+        URL.revokeObjectURL(objectURL);
+        throw error;
+    }
+}
+
+async function setImageSource(img, basePath) {
+    const cleanPath = basePath.replace(
+        /\.(jpg|jpeg|png|webp|avif|jfif|heic|heif)$/i,
+        ""
+    );
+
+    if (img.dataset.objectUrl) {
+        URL.revokeObjectURL(img.dataset.objectUrl);
+        delete img.dataset.objectUrl;
+    }
+
+    for (const extension of IMAGE_EXTENSIONS) {
+        const filePath = cleanPath + extension;
+
+        try {
+            if (extension === ".heic" || extension === ".heif") {
+                await convertHeicToJpg(img, filePath);
+            } else {
+                await loadImageElement(img, filePath);
+            }
+
+            img.classList.remove("image-missing");
+            img.dataset.resolvedSrc = img.src;
+
+            console.log("Image loaded successfully:", filePath);
+
+            return true;
+
+        } catch(error) {
+            console.log("Trying next image format:", filePath);
+        }
+    }
+
+    img.classList.add("image-missing");
+    img.removeAttribute("src");
+    img.alt = "Image could not be loaded: " + basePath;
+
+    console.error(
+        "All image formats failed for:",
+        basePath
+    );
+
+    return false;
+}
+
+/* =====================================
+   BRAND PROJECTS - FINAL ORDER
+===================================== */
+
+const brandProjects = [
+
+{
+    id:"carbless",
+    name:"CARBLESS",
+
+    description:"Developed content for Carbless, a keto meal delivery brand, focusing on making healthy eating feel convenient and enjoyable. The selected work combines food photography, product storytelling, educational content, and customer experience to make keto feel approachable and satisfying.",
+
+    posts:[
+        {
+            image:"pic/carbless/1",
+            category:"SEASONAL FOOD CONTENT",
+            title:"Too Cold? Soup's Got You",
+            alt:"Carbless winter soup campaign"
+        },
+        {
+            image:"pic/carbless/2",
+            category:"EDUCATIONAL CONTENT",
+            title:"Not Every Keto Is Clean Keto",
+            alt:"Carbless educational post about clean keto"
+        },
+        {
+            image:"pic/carbless/3",
+            category:"PRODUCT SPOTLIGHT",
+            title:"It's a Cheesecake. And Yes, It's Carbless!",
+            alt:"Carbless cheesecake product visual"
+        },
+        {
+            image:"pic/carbless/6",
+            category:"INTERACTIVE FOOD CONTENT",
+            title:"Which One Is Keto-Friendly?",
+            alt:"Carbless interactive keto food comparison"
+        },
+        {
+            image:"pic/carbless/8",
+            category:"CUSTOMER EXPERIENCE",
+            title:"Unbox Your First Carbless Experience",
+            alt:"First Carbless order being unpacked"
+        },
+        {
+            image:"pic/carbless/9",
+            category:"SMART FOOD SWAPS",
+            title:"Pasta Cravings? Meet Your Keto Swap",
+            alt:"Carbless keto pasta alternative"
+        },
+        {
+            image:"pic/carbless/12",
+            category:"LIFESTYLE FOOD CONTENT",
+            title:"Cold Outside, Cozy Inside",
+            alt:"Cozy winter Carbless meal"
+        },
+        {
+            image:"pic/carbless/14",
+            category:"PRODUCT & LIFESTYLE",
+            title:"Cravings Without Compromise",
+            alt:"Customer enjoying a Carbless sandwich"
+        }
+    ]
+},
+
+{
+    id:"sameh-gabriel",
+    name:"SAMEH GABRIEL",
+
+    description:"Developed B2B and B2C content direction for Sameh Gabriel, an electrical supplies distributor, focusing on product education, electrical safety, and building brand trust. Created content pillars, creative concepts, social media copy, captions, and visual briefs, translating technical electrical information into clear, engaging content for homeowners, electricians, contractors, and industry professionals.",
+
+    posts:[
+        {
+            image:"pic/sameh/6",
+            category:"PRODUCT EDUCATION",
+            title:"Choosing the Right Circuit Breaker",
+            alt:"Electrical circuit breakers"
+        },
+        {
+            image:"pic/sameh/8",
+            category:"PRODUCT RANGE",
+            title:"Electrical Supplies in One Place",
+            alt:"Electrical supplies and products"
+        },
+        {
+            image:"pic/sameh/9",
+            category:"PRODUCT EDUCATION",
+            title:"What Makes a Quality Electrical Cable?",
+            alt:"Electrical cable close-up"
+        },
+        {
+            image:"pic/sameh/10",
+            category:"VALUE-LED CONTENT",
+            title:"The Real Cost of Choosing Cheap",
+            alt:"Electrical product value visual"
+        },
+        {
+            image:"pic/sameh/13",
+            category:"B2B BRAND TRUST",
+            title:"A Partner Who Understands Your Work",
+            alt:"Electrical professionals reviewing project drawings"
+        },
+        {
+            image:"pic/sameh/16",
+            category:"B2C CUSTOMER JOURNEY",
+            title:"Everything You Need for Your Home's Electrical Setup",
+            alt:"Home electrical distribution board"
+        },
+        {
+            image:"pic/sameh/17",
+            category:"ELECTRICAL SAFETY",
+            title:"Electrical Leakage Is a Serious Risk",
+            alt:"Electrical safety equipment"
+        },
+        {
+            image:"pic/sameh/18",
+            category:"TECHNICAL AWARENESS",
+            title:"The Risks of Improper Equipment Operation",
+            alt:"Industrial electrical equipment"
+        }
+    ]
+},
+
+{
+    id:"mr-puffz",
+    name:"MR PUFFZ",
+
+    description:"Developed a playful, character-driven visual direction for Mr Puffz, a Japanese-inspired dessert brand. Created vibrant social content showcasing boba, cream puffs, chocolate, and mochi while bringing the brand's character and youthful personality to life.",
+
+    posts:[
+        {
+            image:"pic/mr puffz/1",
+            category:"PRODUCT PERSONALISATION",
+            title:"Your Boba, Your Flavor",
+            alt:"Mr Puffz boba flavors presented as three choices"
+        },
+        {
+            image:"pic/mr puffz/2",
+            category:"PRODUCT RANGE",
+            title:"Explore the Flavor Universe",
+            alt:"Mr Puffz colorful boba drinks"
+        },
+        {
+            image:"pic/mr puffz/3",
+            category:"BRAND CHARACTER",
+            title:"A Little Chef, A Lot of Sweetness",
+            alt:"Mr Puffz character surrounded by cream puffs"
+        },
+        {
+            image:"pic/mr puffz/10",
+            category:"INTERACTIVE CONTENT",
+            title:"Can You Solve It?",
+            alt:"Mr Puffz dessert equation puzzle"
+        },
+        {
+            image:"pic/mr puffz/11",
+            category:"PRODUCT COLLECTION",
+            title:"Discover Our Chocolate World",
+            alt:"Mr Puffz chocolate dessert collection"
+        },
+        {
+            image:"pic/mr puffz/12",
+            category:"PRODUCT SPOTLIGHT",
+            title:"Dopamine Mochi Set",
+            alt:"Mr Puffz dopamine mochi gift set"
+        },
+        {
+            image:"pic/mr puffz/13",
+            category:"CULTURAL STORYTELLING",
+            title:"A Piece of Japanese Culture",
+            alt:"Mr Puffz Japanese-inspired mochi assortment"
+        },
+        {
+            image:"pic/mr puffz/14",
+            category:"SEASONAL PRODUCT CONTENT",
+            title:"Missed That Watermelon Taste?",
+            alt:"Watermelon and mango mochi desserts"
+        }
+    ]
+},
+
+{
+    id:"chapati-karak",
+    name:"CHAPATI & KARAK",
+
+    description:"Created a visual content direction for Chapati & Karak, a café brand targeting Saudi and Gulf audiences. Developed product-focused and lifestyle visuals that showcase the menu, brand identity, and customer experience.",
+
+    posts:[
+        {
+            image:"pic/chapati & karak/1",
+            category:"PRODUCT SPOTLIGHT",
+            title:"A Fresh Summer Pour",
+            alt:"Chapati and Karak coconut drink"
+        },
+        {
+            image:"pic/chapati & karak/2",
+            category:"BRAND EXPERIENCE",
+            title:"Karak Worth Sharing",
+            alt:"Chapati and Karak branded cups"
+        },
+        {
+            image:"pic/chapati & karak/11",
+            category:"DELIVERY & CONVENIENCE",
+            title:"Your Order, Just a Tap Away",
+            alt:"Chapati and Karak delivery order"
+        },
+        {
+            image:"pic/chapati & karak/14",
+            category:"ON-THE-GO LIFESTYLE",
+            title:"Chapati on the Go",
+            alt:"Chapati wraps enjoyed on the go"
+        }
+    ]
+},
+
+{
+    id:"bahaa-studio",
+    name:"BAHAA STUDIO",
+
+    description:"A Palestinian interior design studio. Developed social media content for Bahaa Studio, translating architectural and interior design expertise into clear, relatable posts. Focused on space planning, thoughtful details, construction trust, and integrated design solutions.",
+
+    posts:[
+        {
+            image:"pic/bahaa/bahaa1",
+            category:"SPACE PLANNING",
+            title:"Every Space, Planned Right",
+            alt:"Interior design and living room"
+        },
+        {
+            image:"pic/bahaa/bahaa2",
+            category:"INTERIOR DESIGN EXPERIENCE",
+            title:"Every Detail Makes a Difference",
+            alt:"Modern living room and wooden door"
+        },
+        {
+            image:"pic/bahaa/bahaa3",
+            category:"BRAND POSITIONING",
+            title:"Building Trust Before Walls",
+            alt:"Construction professional placing a concrete block"
+        },
+        {
+            image:"pic/bahaa/bahaa4",
+            category:"BRAND AWARENESS",
+            title:"Complete Architectural & Interior Solutions",
+            alt:"Architectural model and interior design elements"
+        }
+    ]
+},
+
+{
+    id:"elham-pharm",
+    name:"ELHAM PHARM",
+
+    description:"A pharmacy in Palestine. Created product-focused social media content for Elham Pharm, showcasing wellness supplements, skincare, fragrance, and haircare through promotional and educational visuals.",
+
+    posts:[
+        {
+            image:"pic/posts/alham/1",
+            category:"WELLNESS & SUPPLEMENT PROMOTION",
+            title:"Wellness Essentials, Special Offers",
+            alt:"Elham Pharm wellness supplements and health products"
+        },
+        {
+            image:"pic/posts/alham/2",
+            category:"SKINCARE PRODUCT SPOTLIGHT",
+            title:"Glow Isn't Just a Filter",
+            alt:"Dr Gold Golden Glow skincare serum presented by a model"
+        },
+        {
+            image:"pic/posts/alham/3",
+            category:"FRAGRANCE CAMPAIGN",
+            title:"A Fragrance That Leaves an Impression",
+            alt:"Luxury perfume bottles styled with red ribbons"
+        },
+        {
+            image:"pic/posts/alham/4",
+            category:"HAIR CARE PRODUCT SPOTLIGHT",
+            title:"Smooth Hair, Less Frizz",
+            alt:"ALMIRA leave-in hair mask being sprayed onto long hair"
+        }
+    ]
+},
+
+{
+    id:"life-gym",
+    name:"LIFE GYM",
+
+    description:"Created motivational and promotional social media content for Life Gym, using bold fitness visuals and direct messaging to encourage consistency, confidence, and action.",
+
+    posts:[
+        {
+            image:"pic/life gym/life01",
+            category:"FITNESS MOTIVATION",
+            title:"Don't Let the Scale Define Your Progress",
+            alt:"Man looking at a weighing scale in a gym"
+        },
+        {
+            image:"pic/life gym/life02",
+            category:"GYM PROMOTION",
+            title:"Are You Ready to Transform?",
+            alt:"Athlete training with a cable machine"
+        },
+        {
+            image:"pic/life gym/life03",
+            category:"MOTIVATIONAL CONTENT",
+            title:"No Excuses. Just Start.",
+            alt:"Gym member working out"
+        },
+        {
+            image:"pic/life gym/life04",
+            category:"FITNESS LIFESTYLE",
+            title:"Your Workout Companion",
+            alt:"Gym bag with workout essentials"
+        }
+    ]
+},
+
+{
+    id:"el-sherif-travel",
+    name:"EL SHERIF TRAVEL",
+
+    description:"Created an educational travel content series for El Sherif Travel, presenting practical Umrah preparation tips and essential items in a clear, easy-to-follow format. The five selected visuals are displayed together in one row.",
+
+    posts:[
+        {
+            image:"pic/al shrif/elshrif01",
+            category:"UMRAH TRAVEL TIPS",
+            title:"Your Umrah Trip Is Coming Up?",
+            alt:"Essential items to prepare before Umrah"
+        },
+        {
+            image:"pic/al shrif/elshrif02",
+            category:"TRAVEL ESSENTIALS",
+            title:"Personal Essentials for the Haram",
+            alt:"Personal items for entering the Haram"
+        },
+        {
+            image:"pic/al shrif/elshrif03",
+            category:"TRAVEL PREPARATION",
+            title:"Don't Forget Your Daily Essentials",
+            alt:"Daily personal medicines and travel essentials"
+        },
+        {
+            image:"pic/al shrif/elshrif04",
+            category:"TRAVEL DOCUMENTS",
+            title:"Keep Your Important Documents Ready",
+            alt:"Passport and travel documents"
+        },
+        {
+            image:"pic/al shrif/elshrif05",
+            category:"SAVE & SHARE",
+            title:"Save This Checklist Before You Go",
+            alt:"Kaaba and travel checklist"
+        }
+    ]
+},
+
+{
+    id:"abdulnasser-alwahi",
+    name:"EL-WAHY FOUNDATION",
+
+    description:"Developed social media content for EL-WAHY FOUNDATION, a charitable foundation supporting education, vocational training, scholarships, and adult literacy initiatives.",
+
+    posts:[
+        {
+            image:"pic/elwahy/elwahy1",
+            category:"FOUNDATION INTRODUCTION",
+            title:"Education and Training That Create Opportunity",
+            alt:"EL-WAHY FOUNDATION introduction"
+        },
+        {
+            image:"pic/elwahy/elwahy2",
+            category:"VOCATIONAL TRAINING",
+            title:"Building Skills for the Future",
+            alt:"Young people taking part in vocational training"
+        },
+        {
+            image:"pic/elwahy/elwahy3",
+            category:"EDUCATIONAL SUPPORT",
+            title:"Opening Doors Through Scholarships",
+            alt:"Student holding books in a university library"
+        },
+        {
+            image:"pic/elwahy/elwahy4",
+            category:"COMMUNITY EDUCATION",
+            title:"Learning Has No Age Limit",
+            alt:"Adult literacy and education session"
+        }
+    ]
+}
+
+];
+
+/* =====================================
+   BUILD BRAND NAVIGATION
+===================================== */
+
+const brandIndex = document.getElementById("brandIndex");
+const brandsContainer = document.getElementById("brandsContainer");
+
+brandProjects.forEach((brand, brandNumber) => {
+
+    const link = document.createElement("a");
+
+    link.href = "#" + brand.id;
+    link.textContent = brand.name;
+
+    brandIndex.appendChild(link);
+
+    const section = document.createElement("section");
+
+    section.className = "brand-section";
+    section.id = brand.id;
+    section.dataset.brand = brand.id;
+
+    section.innerHTML = `
+        <div class="brand-heading">
+            <div>
+                <div class="eyebrow">
+                    BRAND ${String(brandNumber+1).padStart(2,"0")} / SELECTED WORK
+                </div>
+                <h2>${brand.name}</h2>
+                <p>${brand.description}</p>
+            </div>
+
+            <div class="brand-count">
+                ${String(brand.posts.length).padStart(2,"0")} SELECTED POSTS
+            </div>
+        </div>
+    `;
+
+    const grid = document.createElement("div");
+
+    grid.className = "gallery-grid";
+
+    brand.posts.forEach((post, postIndex) => {
+
+        const item = document.createElement("article");
+
+        item.className = "gallery-item";
+        item.dataset.index = postIndex;
+        item.dataset.images = JSON.stringify([post.image]);
+        item.dataset.alts = JSON.stringify([post.alt]);
+        item.dataset.title = post.title;
+        item.dataset.category = post.category;
+
+        const visual = document.createElement("div");
+
+        visual.className = "gallery-visual";
+
+        const img = document.createElement("img");
+
+        img.className = "gallery-image";
+        img.alt = post.alt;
+        img.loading = "lazy";
+
+        setImageSource(img, post.image);
+
+        visual.appendChild(img);
+
+        const caption = document.createElement("div");
+
+        caption.className = "gallery-caption";
+
+        caption.innerHTML = `
+            <span>${post.category}</span>
+            <h3>${post.title}</h3>
+        `;
+
+        item.appendChild(visual);
+        item.appendChild(caption);
+
+        grid.appendChild(item);
+
+    });
+
+    section.appendChild(grid);
+    brandsContainer.appendChild(section);
+
+});
+
+/* =====================================
+   LIGHTBOX
+===================================== */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCategory = document.getElementById("lightboxCategory");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const lightboxCount = document.getElementById("lightboxCount");
+
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+let activeGallery = [];
+let activePostIndex = 0;
+let activeSlideIndex = 0;
+
+function getPostImages(item) {
+    return JSON.parse(item.dataset.images || "[]");
+}
+
+function getPostAlts(item) {
+    return JSON.parse(item.dataset.alts || "[]");
+}
+
+function updateLightbox() {
+
+    if (!activeGallery.length) return;
+
+    const item = activeGallery[activePostIndex];
+
+    const images = getPostImages(item);
+    const alts = getPostAlts(item);
+
+    setImageSource(lightboxImage, images[activeSlideIndex]);
+
+    lightboxImage.alt = alts[activeSlideIndex] || "";
+
+    lightboxCategory.textContent = item.dataset.category;
+    lightboxTitle.textContent = item.dataset.title;
+
+    lightboxCount.textContent =
+        `POST ${String(activePostIndex+1).padStart(2,"0")} / ${String(activeGallery.length).padStart(2,"0")}`;
+}
+
+function openLightbox(item) {
+
+    const section = item.closest(".brand-section");
+
+    activeGallery = Array.from(
+        section.querySelectorAll(".gallery-item")
+    );
+
+    activePostIndex = Number(item.dataset.index);
+    activeSlideIndex = 0;
+
+    updateLightbox();
+
+    lightbox.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+
+    lightbox.classList.remove("open");
+
+    document.body.style.overflow = "";
+
+    lightboxImage.removeAttribute("src");
+}
+
+function showPrevious() {
+
+    if (!activeGallery.length) return;
+
+    if (activeSlideIndex > 0) {
+
+        activeSlideIndex--;
+
+    } else {
+
+        activePostIndex =
+            (activePostIndex - 1 + activeGallery.length)
+            % activeGallery.length;
+
+        const images = getPostImages(
+            activeGallery[activePostIndex]
+        );
+
+        activeSlideIndex = images.length - 1;
+    }
+
+    updateLightbox();
+}
+
+function showNext() {
+
+    if (!activeGallery.length) return;
+
+    const images = getPostImages(
+        activeGallery[activePostIndex]
+    );
+
+    if (activeSlideIndex < images.length - 1) {
+
+        activeSlideIndex++;
+
+    } else {
+
+        activePostIndex =
+            (activePostIndex + 1) % activeGallery.length;
+
+        activeSlideIndex = 0;
+    }
+
+    updateLightbox();
+}
+
+document.querySelectorAll(".gallery-item").forEach(item => {
+
+    item.addEventListener("click", () => {
+        openLightbox(item);
+    });
+
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxPrev.addEventListener("click", showPrevious);
+lightboxNext.addEventListener("click", showNext);
+
+lightbox.addEventListener("click", event => {
+
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+
+});
+
+document.addEventListener("keydown", event => {
+
+    if (!lightbox.classList.contains("open")) return;
+
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") showPrevious();
+    if (event.key === "ArrowRight") showNext();
+
+});
+
+/* =====================================
+   ACTIVE BRAND NAVIGATION
+===================================== */
+
+const brandSections = document.querySelectorAll(".brand-section");
+const brandLinks = document.querySelectorAll(".brand-index a");
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            brandLinks.forEach(link => {
+
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + entry.target.id
+                );
+
+            });
+
+        });
+
+    }, {
+        rootMargin:"-25% 0px -60% 0px"
+    });
+
+    brandSections.forEach(section => {
+        observer.observe(section);
+    });
+
+}
+
+/* =====================================
+   CLOSING CTA - FIXED BUTTON TRANSITION
+===================================== */
+
+const closingCta = document.querySelector(".closing-cta");
+const mobileContactBar = document.querySelector(".mobile-contact-bar");
+
+if (
+    closingCta &&
+    mobileContactBar &&
+    "IntersectionObserver" in window
+) {
+
+    const closingObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (window.innerWidth <= 750) {
+
+                    mobileContactBar.classList.toggle(
+                        "is-hidden",
+                        entry.isIntersecting
+                    );
+
+                } else {
+
+                    mobileContactBar.classList.remove("is-hidden");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.2,
+            rootMargin:"0px 0px -75px 0px"
+        }
+
+    );
+
+    closingObserver.observe(closingCta);
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 750) {
+            mobileContactBar.classList.remove("is-hidden");
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

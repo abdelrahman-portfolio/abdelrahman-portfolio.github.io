@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Selected reels and creative video projects by Abdelrahman Ahmed.">
+<title>Reels | Abdelrahman Ahmed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-pages.css">
+<style>
+:root {
+    --yellow:#FFD21F;
+    --bg:#080808;
+    --surface:#141414;
+    --line:#292929;
+    --white:#FFFFFF;
+    --muted:#A5A5A5;
+}
+* { box-sizing:border-box; }
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:110px;
+}
+body {
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Manrope',sans-serif;
+    overflow-x:hidden;
+}
+a {
+    text-decoration:none;
+    color:inherit;
+}
+button { font-family:inherit; }
+.eyebrow {
+    color:var(--yellow);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2.5px;
+}
+/* HEADER */
+header {
+    height:90px;
+    min-height:90px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,8,.96);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(14px);
+}
+.logo {
+    width:85px;
+    height:65px;
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+}
+.logo img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+header nav {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+}
+header nav a {
+    color:#AAAAAA;
+    font-size:13px;
+    font-weight:600;
+    transition:color .25s ease;
+}
+header nav a:hover,
+header nav a.active {
+    color:var(--yellow);
+}
+.contact-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    color:var(--yellow);
+    border:1px solid var(--yellow);
+    padding:14px 20px;
+    font-size:12px;
+    font-weight:800;
+    transition:background .25s ease,color .25s ease;
+}
+.contact-link:hover {
+    background:var(--yellow);
+    color:var(--bg);
+}
+a:focus-visible,
+button:focus-visible {
+    outline:2px solid var(--yellow);
+    outline-offset:4px;
+}
+.menu-toggle,
+.mobile-contact-bar {
+    display:none;
+}
+/* HERO */
+.page-hero {
+    padding:100px 8% 65px;
+}
+.page-hero h1 {
+    color:var(--white);
+    font-size:clamp(56px, 7vw, 96px);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+}
+.page-hero h1 span { color:var(--yellow); }
+.page-hero p {
+    color:var(--muted);
+    max-width:760px;
+    font-size:15px;
+    line-height:1.9;
+}
+.hero-role-label {
+    display:inline-block;
+    margin-top:24px;
+    color:var(--yellow);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+/* BRAND NAVIGATION */
+.brand-navigation {
+    padding:40px 8% 15px;
+}
+.brand-navigation-inner {
+    max-width:1450px;
+    margin:auto;
+}
+.brand-navigation .eyebrow { margin-bottom:18px; }
+.brand-index {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.brand-index a {
+    display:inline-block;
+    border:1px solid #333333;
+    padding:11px 14px;
+    color:#AAAAAA;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.5px;
+    white-space:nowrap;
+    transition:background .25s,color .25s,border-color .25s;
+}
+.brand-index a:hover,
+.brand-index a:focus-visible {
+    color:var(--bg);
+    background:var(--yellow);
+    border-color:var(--yellow);
+}
+/* BRAND SECTIONS */
+.brands-container {
+    padding:15px 8% 90px;
+}
+.brand-section {
+    max-width:1450px;
+    margin:0 auto;
+    padding:60px 0 65px;
+    border-bottom:1px solid var(--line);
+    scroll-margin-top:110px;
+}
+.brand-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:25px;
+    margin-bottom:30px;
+}
+.brand-heading .eyebrow { margin-bottom:12px; }
+.brand-heading h2 {
+    color:var(--white);
+    font-size:clamp(38px, 5vw, 58px);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-2px;
+}
+.brand-heading p {
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.9;
+    max-width:720px;
+    margin-top:14px;
+}
+.brand-count {
+    color:var(--yellow);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    padding-bottom:5px;
+}
+/* REELS GRID */
+.reels-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
+}
+.reel-card {
+    min-width:0;
+    background:var(--surface);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:transform .3s ease,border-color .3s ease;
+}
+.reel-card:hover {
+    transform:translateY(-5px);
+    border-color:var(--yellow);
+}
+/* VIDEO FRAME */
+.video-frame {
+    position:relative;
+    width:100%;
+    aspect-ratio:9 / 16;
+    background:#000000;
+    overflow:hidden;
+    cursor:pointer;
+    touch-action:manipulation;
+}
+.video-frame video {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000000;
+    opacity:0;
+    cursor:pointer;
+    transition:opacity .25s ease;
+}
+.video-frame video.cover-ready {
+    opacity:1;
+}
+/* PLAY BUTTON */
+.video-play-button {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    padding:0;
+    border:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.12));
+    color:#FFFFFF;
+    cursor:pointer;
+}
+.video-play-button span {
+    width:66px;
+    height:66px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:50%;
+    background:rgba(0,0,0,.58);
+    font-size:0;
+    line-height:0;
+    transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease;
+}
+.video-play-button span::before {
+    content:"";
+    display:block;
+    width:0;
+    height:0;
+    margin-left:5px;
+    border-top:13px solid transparent;
+    border-bottom:13px solid transparent;
+    border-left:21px solid currentColor;
+}
+.video-play-button:hover span {
+    transform:scale(1.08);
+    background:var(--yellow);
+    color:var(--bg);
+    border-color:var(--yellow);
+}
+.video-play-button[hidden] { display:none; }
+.video-error {
+    position:absolute;
+    inset:0;
+    z-index:3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    text-align:center;
+    background:#151515;
+    color:#DDDDDD;
+    font-size:13px;
+    line-height:1.8;
+}
+.video-error[hidden] { display:none; }
+/* REEL INFORMATION */
+.reel-info { padding:19px 20px 21px; }
+.reel-info span {
+    display:block;
+    color:var(--yellow);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:9px;
+}
+.reel-info h3 {
+    color:var(--white);
+    font-size:18px;
+    font-weight:800;
+    line-height:1.45;
+}
+/* CLOSING SECTION */
+.next-section {
+    padding:85px 8%;
+    background:#080808;
+    color:var(--white);
+    text-align:center;
+    border-top:1px solid var(--line);
+}
+.next-section h2 {
+    color:var(--white);
+    font-size:clamp(40px, 6vw, 72px);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-2px;
+    margin:0;
+}
+.next-section h2 span { color:var(--yellow); }
+.next-section a {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow);
+    color:#080808;
+    padding:16px 30px;
+    min-width:280px;
+    margin-top:32px;
+    font-size:12px;
+    font-weight:900;
+    transition:transform .25s,background .25s;
+}
+.next-section a:hover {
+    transform:translateY(-3px);
+    background:var(--white);
+}
+/* FOOTER */
+footer {
+    padding:30px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:18px;
+    color:#888888;
+    font-size:11px;
+    line-height:1.6;
+    border-top:1px solid var(--line);
+}
+footer strong {
+    color:var(--white);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+/* TABLET */
+@media(max-width:1000px) {
+    header nav { gap:20px; }
+    .reels-grid {
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:14px;
+    }
+}
+/* MOBILE */
+@media(max-width:750px) {
+    html { scroll-padding-top:85px; }
+    body { padding-bottom:78px; }
+    header {
+        height:68px;
+        min-height:68px;
+        padding:8px 5%;
+        flex-wrap:nowrap;
+        gap:12px;
+        overflow:visible;
+    }
+    .logo {
+        width:48px;
+        height:45px;
+    }
+    .contact-link { display:none; }
+    .menu-toggle {
+        display:flex;
+        width:40px;
+        height:40px;
+        margin-left:auto;
+        padding:8px;
+        border:0;
+        background:transparent;
+        cursor:pointer;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        gap:5px;
+    }
+    .menu-toggle span {
+        display:block;
+        width:22px;
+        height:2px;
+        border-radius:2px;
+        background:#FFFFFF;
+        transition:transform .25s,opacity .25s;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform:translateY(7px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity:0;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform:translateY(-7px) rotate(-45deg);
+    }
+    /* DROPDOWN NAVIGATION */
+    header nav {
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        left:5%;
+        right:5%;
+        width:auto;
+        margin:0;
+        padding:8px;
+        flex-direction:column;
+        align-items:stretch;
+        justify-content:flex-start;
+        gap:0;
+        background:#121212;
+        border:1px solid #303030;
+        border-radius:15px;
+        box-shadow:0 16px 35px rgba(0,0,0,.48);
+        z-index:130;
+    }
+    header nav.open { display:flex; }
+    header nav a {
+        display:block;
+        width:100%;
+        padding:14px;
+        border-bottom:1px solid #292929;
+        color:#B8B8B8;
+        font-size:13px;
+        font-weight:600;
+    }
+    header nav a:last-child { border-bottom:0; }
+    header nav a.active {
+        color:var(--yellow);
+        background:rgba(255,210,31,.07);
+        border-radius:8px;
+    }
+    /* HERO */
+    .page-hero { padding:55px 6% 40px; }
+    .page-hero h1 {
+        font-size:clamp(40px, 11vw, 54px);
+        letter-spacing:-2.5px;
+        line-height:1.04;
+        margin-bottom:20px;
+    }
+    .page-hero p {
+        font-size:14px;
+        line-height:1.85;
+    }
+    .hero-role-label {
+        margin-top:18px;
+        font-size:10px;
+        line-height:1.7;
+    }
+    /* BRAND NAVIGATION */
+    .brand-navigation { padding:28px 6% 10px; }
+    .brand-navigation .eyebrow { margin-bottom:15px; }
+    .brand-index {
+        display:flex;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        gap:8px;
+        padding-bottom:12px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+    }
+    .brand-index::-webkit-scrollbar { display:none; }
+    .brand-index a {
+        flex:0 0 auto;
+        padding:10px 13px;
+        font-size:9px;
+        border-radius:30px;
+        background:#101010;
+    }
+    /* BRAND CONTAINER */
+    .brands-container { padding:10px 6% 45px; }
+    .brand-section {
+        padding:40px 0 40px;
+        scroll-margin-top:82px;
+    }
+    .brand-heading {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+        margin-bottom:20px;
+    }
+    .brand-heading .eyebrow {
+        font-size:10px;
+        margin-bottom:10px;
+    }
+    .brand-heading h2 {
+        font-size:clamp(30px, 9vw, 40px);
+        letter-spacing:-1.5px;
+        line-height:1.15;
+    }
+    .brand-heading p {
+        font-size:13px;
+        line-height:1.8;
+        margin-top:12px;
+    }
+    .brand-count {
+        padding:0;
+        font-size:9px;
+        letter-spacing:1.8px;
+    }
+    /* HORIZONTAL REELS */
+    .reels-grid {
+        display:flex;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        align-items:stretch;
+        width:auto;
+        max-width:none;
+        margin:0 -6.8%;
+        padding:5px 6.8% 18px;
+        gap:13px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        scroll-snap-type:x mandatory;
+        scroll-padding-left:6.8%;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+    .reels-grid::-webkit-scrollbar { display:none; }
+    .reel-card {
+        flex:0 0 79%;
+        width:79%;
+        min-width:0;
+        max-width:340px;
+        border-radius:12px;
+        scroll-snap-align:start;
+        scroll-snap-stop:normal;
+    }
+    .reel-card:hover {
+        transform:none;
+        border-color:var(--line);
+    }
+    /* VIDEO SIZE */
+    .video-frame {
+        width:100%;
+        aspect-ratio:9 / 16;
+    }
+    .video-frame video {
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+    /* MOBILE PLAY BUTTON - SMALL CIRCLE LIKE THE REFERENCE */
+    .video-play-button { background:transparent; }
+    .video-play-button span {
+        width:80px;
+        height:80px;
+        padding:0;
+        border:1px solid rgba(255,255,255,.85);
+        border-radius:50%;
+        background:rgba(0,0,0,.58);
+        font-size:0;
+        line-height:0;
+        clip-path:none;
+        filter:none;
+        transform:none;
+        transition:transform .25s ease,background .25s ease,border-color .25s ease;
+    }
+    .video-play-button span::before {
+        display:block;
+        width:0;
+        height:0;
+        margin-left:5px;
+        border-top:10px solid transparent;
+        border-bottom:10px solid transparent;
+        border-left:16px solid #FFFFFF;
+    }
+    .video-play-button:hover span {
+        background:rgba(0,0,0,.68);
+        color:#FFFFFF;
+        border-color:#FFFFFF;
+        transform:scale(1.05);
+    }
+}
+/* SMALL MOBILE */
+@media(max-width:380px) {
+    .reel-card {
+        flex-basis:84%;
+        width:84%;
+    }
+    .brand-heading h2 { font-size:clamp(30px, 9vw, 40px); }
+}
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+/* MOBILE - UNIFIED TYPOGRAPHY */
+@media (max-width: 750px) {
+    .eyebrow { font-size: 10px; }
+    .video-error { font-size: 12px; }
+    .reel-info span { font-size: 9px; }
+    .reel-info h3 { font-size: 16px; }
+    .next-section h2 { font-size: clamp(32px, 9vw, 42px); }
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <a href="portfolio.html" class="logo">
+        <img src="pic/af.png" alt="AF Logo">
+    </a>
+    <nav id="mobileNav">
+        <a href="portfolio.html">Home</a>
+        <a href="posts.html">Posts</a>
+        <a href="videos.html" class="active">Reels</a>
+        <a href="campaigns.html">Campaigns</a>
+        <a href="personal-branding.html">My Personal Branding</a>
+    </nav>
+    <a href="portfolio.html#contact" class="contact-link">
+        LET'S TALK ↗
+    </a>
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mobileNav"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+<main>
+<!-- HERO -->
+<section class="page-hero">
+    <h1>
+        Concepts<br>
+        <span>Come Alive</span>
+    </h1>
+    <p>
+        I develop the idea, write the script, create the storyboard,
+        supervise the shoot, and collaborate with video editors
+        to bring each video to its strongest final form.
+    </p>
+    <div class="hero-role-label">
+        MY ROLE / FROM IDEA TO FINAL CUT
+    </div>
+</section>
+<!-- BRAND NAVIGATION -->
+<section class="brand-navigation">
+    <div class="brand-navigation-inner">
+        <div class="eyebrow">EXPLORE BY BRAND</div>
+        <div class="brand-index" id="brandIndex"></div>
+    </div>
+</section>
+<!-- BRANDS -->
+<div class="brands-container" id="brandsContainer"></div>
+<!-- CLOSING SECTION -->
+<section class="next-section">
+    <h2>
+        More Than Just Videos<br>
+        <span>Ideas Worth Watching</span>
+    </h2>
+    <a href="portfolio.html#contact" class="closing-cta">
+        LET'S TALK ↗
+    </a>
+</section>
+</main>
+<!-- FOOTER -->
+<footer>
+    <strong>ABDELRAHMAN AHMED</strong>
+    <span>
+        CONTENT CREATOR · COPYWRITER · CONTENT STRATEGIST
+    </span>
+    <span>© 2026</span>
+</footer>
+<!-- FIXED MOBILE CONTACT -->
+<div class="mobile-contact-bar">
+    <a href="portfolio.html#contact">
+        LET'S TALK ↗
+    </a>
+</div>
+<script>
+/* MOBILE NAVIGATION */
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+function closeMobileMenu() {
+    mobileNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded","false");
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
+}
+menuToggle.addEventListener("click", () => {
+    const isOpen = mobileNav.classList.toggle("open");
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+});
+mobileNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMobileMenu);
+});
+document.addEventListener("click", event => {
+    if (
+        !mobileNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ) {
+        closeMobileMenu();
+    }
+});
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeMobileMenu();
+    }
+});
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 750) {
+        closeMobileMenu();
+    }
+});
+/* BRAND PROJECTS */
+const brandProjects = [
+    {
+        id:"maketa",
+        name:"MAKETA",
+        description:"A street-inspired series turning everyday Egyptian situations into humorous, relatable marketing stories.",
+        videos:[
+            {src:"reels/7L2aaa.mp4",title:"Barbershop",coverTime:5.4},
+            {src:"reels/Asyap.mp4",title:"Sugarcane Juice Shop",coverTime:7.0},
+            {src:"reels/Qahwaa.mp4",title:"Local Café"}
+        ]
+    },
+    {
+        id:"trade-house",
+        name:"TRADE HOUSE",
+        description:"Product-focused reels introducing SKYWORTH power banks and chargers through clear demonstrations and engaging promotional storytelling.",
+        videos:[
+            {src:"reels/trade house/Power Bank02.mp4",title:"More Than Just Battery Capacity",coverTime:3.2},
+            {src:"reels/trade house/Charger02.mp4",title:"Smart Charging with a TFT Display"},
+            {src:"reels/trade house/Power Bank03.mp4",title:"Built-In Charging Cables"}
+        ]
+    },
+    {
+        id:"mirror-media",
+        name:"MIRROR MEDIA",
+        description:"Wrote targeted scripts for Mirror Media to attract potential clients in the Hajj, Umrah, and medical sectors, tailoring each message to the industry's needs.",
+        videos:[
+            {src:"reels/reelss/mirror x.mp4",title:"Social Media Mistakes"},
+            {src:"reels/doc 3.mp4",title:"The Power of a Strong Medical Script"},
+            {src:"reels/doc 2.mp4",title:"Why Patients Need a Specialist",coverTime:6.5}
+        ]
+    },
+    {
+        id:"bahaa-studio",
+        name:"BAHAA STUDIO",
+        description:"Created content in his Palestinian dialect for a Palestinian interior designer, showcasing his projects and design approach.",
+        videos:[
+            {src:"reels/reelss/بهاء 1.mp4",title:"Misk Spa Tour",coverTime:2.2},
+            {src:"reels/reelss/بهاء 2.mp4",title:"Behind the Misk Spa Design",coverTime:3.6},
+            {src:"reels/reelss/بهاء 3.mp4",title:"Interior Design Insights"}
+        ]
+    },
+    {
+        id:"young-again",
+        name:"YOUNG AGAIN",
+        description:"Beauty and hair-care content highlighting treatments, services, and client-focused messages.",
+        videos:[
+            {src:"reels/reelss/young again 1.mp4",title:"The Right Treatment Starts with a Consultation",coverTime:20.9},
+            {src:"reels/reelss/young again 2.mp4",title:"A Full Self-Care Experience",coverTime:26.9},
+            {src:"reels/reelss/young again 3.mp4",title:"Hair & Beauty Treatments",coverTime:22.9}
+        ]
+    },
+    {
+        id:"life-gym",
+        name:"LIFE GYM",
+        description:"Fitness reels presenting gym services, workout culture, and motivational content for an active lifestyle.",
+        videos:[
+            {src:"reels/reelss/life 1.mp4",title:"A Weight-Loss Program That Fits Your Lifestyle",coverTime:8.8},
+            {src:"reels/reelss/life 2.mp4",title:"Stay Consistent, Reach Your Goals",coverTime:7.8},
+            {src:"reels/reelss/life 3.mp4",title:"Inside Life Gym",coverTime:16.5}
+        ]
+    },
+    {
+        id:"care-steel",
+        name:"CARE STEEL",
+        description:"Created B2B content positioning Care Steel as a reliable steel supplier for contractors, developers, and construction businesses.",
+        videos:[
+            {src:"reels/reelss/care steel 1.mp4",title:"Steel Profiles for Every Project"},
+            {src:"reels/reelss/care steel 2.mp4",title:"Quality at Every Project Stage"},
+            {src:"reels/reelss/care steel 3.mp4",title:"Durable Steel, Easy Maintenance"}
+        ]
+    },
+    {
+        id:"el-sherif-travel",
+        name:"EL SHERIF TRAVEL",
+        description:"Travel-focused reels sharing useful travel tips, app guidance, and information that helps customers plan and book their trips.",
+        videos:[
+            {src:"reels/reelss/الشريف 1.mp4",title:"3 Apps Every Traveler Should Know",coverTime:7.6},
+            {src:"reels/reelss/الشريف 2.mp4",title:"Religious Travel Expertise"},
+            {src:"reels/reelss/الشريف 3.mp4",title:"Flight Tickets Made Easy"}
+        ]
+    },
+    {
+        id:"estests",
+        name:"ESTESTS",
+        description:"UGC-style promotional content introducing the EST exam, explaining its benefits, and highlighting its role in university preparation.",
+        videos:[
+            {src:"reels/reelss/EST 1.mp4",title:"EST Test Dates & Registration",coverTime:3.5},
+            {src:"reels/reelss/EST 2.mp4",title:"The EST Experience"},
+            {src:"reels/reelss/EST 3.mp4",title:"Know Your Level with EST"}
+        ]
+    },
+    {
+        id:"royal-sun",
+        name:"ROYAL SUN",
+        description:"Travel and Umrah content highlighting destinations, booking services, and customer-facing travel experiences.",
+        videos:[
+            {src:"reels/reelss/رويال صن 1.mp4",title:"Travel Services, All in One Place",coverTime:18.7},
+            {src:"reels/reelss/رويال صن 2.mp4",title:"Every Detail of Your Journey Matters",coverTime:3.6},
+            {src:"reels/reelss/رويال صن 3.mp4",title:"Traveler Testimonials"}
+        ]
+    },
+    {
+        id:"sahra-cafe",
+        name:"SAHRA CAFE",
+        description:"Lifestyle reels showcasing the café atmosphere, food, drinks, and the overall dining experience.",
+        videos:[
+            {src:"reels/reelss/سهرة 1.mp4",title:"The Sahra Café Experience"},
+            {src:"reels/reelss/سهرة 2.mp4",title:"The Art of Every Cup"},
+            {src:"reels/reelss/سهرة 3.mp4",title:"Food, Drinks & Atmosphere",coverTime:3.4}
+        ]
+    },
+    {
+        id:"al-amal-shoes",
+        name:"AL AMAL SHOES",
+        description:"A Palestinian footwear store offering a wide range of shoe styles for all ages and everyday needs.",
+        videos:[
+            {src:"reels/reelss/الامل 1.mp4",title:"Styles for Every Step",coverTime:6.3}
+        ]
+    }
+];
+/* GENERATE BRAND SECTIONS */
+const brandIndex = document.getElementById("brandIndex");
+const brandsContainer = document.getElementById("brandsContainer");
+brandProjects.forEach((brand, brandIndexNumber) => {
+    const link = document.createElement("a");
+    link.href = `#${brand.id}`;
+    link.textContent = brand.name;
+    brandIndex.appendChild(link);
+    const section = document.createElement("section");
+    section.className = "brand-section";
+    section.id = brand.id;
+    const countLabel =
+        `${String(brand.videos.length).padStart(2,"0")} REELS`;
+    section.innerHTML = `
+        <div class="brand-heading">
+            <div>
+                <div class="eyebrow">
+                    BRAND ${String(brandIndexNumber + 1).padStart(2,"0")} / SELECTED WORK
+                </div>
+                <h2>${brand.name}</h2>
+                ${brand.description ? `<p>${brand.description}</p>` : ""}
+            </div>
+            <div class="brand-count">
+                ${countLabel}
+            </div>
+        </div>
+    `;
+    const grid = document.createElement("div");
+    grid.className = "reels-grid";
+    brand.videos.forEach((video, reelIndex) => {
+        const card = document.createElement("article");
+        card.className = "reel-card";
+        card.innerHTML = `
+            <div class="video-frame">
+                <video
+                    playsinline
+                    preload="none"
+                    data-src="${video.src}"
+                    data-cover-time="${video.coverTime || 0}"
+                    aria-label="${brand.name}: ${video.title}">
+                </video>
+                <button
+                    class="video-play-button"
+                    type="button"
+                    aria-label="Play ${video.title}">
+                    <span aria-hidden="true"></span>
+                </button>
+                <div class="video-error" hidden>
+                    Unable to load this video. Please check the file name and folder.
+                </div>
+            </div>
+            <div class="reel-info">
+                <span>SHORT-FORM VIDEO</span>
+                <h3>${video.title}</h3>
+            </div>
+        `;
+        const reelVideo = card.querySelector("video");
+        const playButton = card.querySelector(".video-play-button");
+        const videoFrame = card.querySelector(".video-frame");
+        // Keep the play icon visible whenever the video is paused.
+        reelVideo.controls = false;
+        reelVideo.addEventListener("play", () => {
+            playButton.hidden = true;
+        });
+        reelVideo.addEventListener("pause", () => {
+            if (reelVideo.dataset.hasPlayed === "true" && !reelVideo.ended) {
+                playButton.hidden = false;
+            }
+        });
+        reelVideo.addEventListener("ended", () => {
+            playButton.hidden = false;
+        });
+        // Clicking anywhere inside the video frame toggles play/pause.
+        videoFrame.addEventListener("click", (event) => {
+            if (event.target.closest(".video-error")) return;
+            toggleVideo(reelVideo, playButton);
+        });
+        grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    brandsContainer.appendChild(section);
+});
+/* LAZY VIDEO LOADING */
+const reelVideos = document.querySelectorAll("video[data-src]");
+function loadVideo(video) {
+    if (video.dataset.loaded === "true") return;
+    const filePath = video.dataset.src;
+    if (!filePath) return;
+    const errorMessage =
+        video.parentElement.querySelector(".video-error");
+    const playButton =
+        video.parentElement.querySelector(".video-play-button");
+    video.addEventListener("error", () => {
+        if (errorMessage) {
+            errorMessage.hidden = false;
+        }
+        if (playButton) {
+            playButton.hidden = true;
+        }
+    });
+    video.addEventListener("loadeddata", () => {
+        if (errorMessage) {
+            errorMessage.hidden = true;
+        }
+        if (Number(video.dataset.coverTime || 0) <= 0) {
+            video.classList.add("cover-ready");
+        }
+    });
+    video.addEventListener("loadedmetadata", () => {
+        if (video.dataset.playStarted === "true") return;
+        const coverTime = Number(video.dataset.coverTime || 0);
+        if (coverTime > 0 && Number.isFinite(video.duration)) {
+            video.currentTime = Math.min(
+                coverTime,
+                Math.max(0, video.duration - 0.25)
+            );
+        } else {
+            video.classList.add("cover-ready");
+        }
+    }, {once:true});
+    video.addEventListener("seeked", () => {
+        if (video.dataset.playStarted !== "true") {
+            video.pause();
+            video.classList.add("cover-ready");
+        }
+    });
+    video.dataset.loaded = "true";
+    video.src = encodeURI(filePath);
+    video.preload = "metadata";
+    video.load();
+}
+/* TOGGLE VIDEO PLAYBACK FROM ANYWHERE IN THE VIDEO FRAME */
+function toggleVideo(video, playButton) {
+    if (video.error) return;
+    // Cancel playback if the video is still loading.
+    if (video.dataset.pendingPlay === "true") {
+        video.dataset.pendingPlay = "false";
+        playButton.hidden = false;
+        return;
+    }
+    // Pause if currently playing.
+    if (!video.paused && !video.ended) {
+        video.pause();
+        return;
+    }
+    video.controls = false;
+    video.dataset.playStarted = "true";
+    loadVideo(video);
+    function beginPlayback() {
+        if (video.dataset.pendingPlay !== "true") return;
+        video.dataset.pendingPlay = "false";
+        // First playback starts from the beginning.
+        // Resuming playback continues from the paused position.
+        if (video.dataset.hasPlayed !== "true" || video.ended) {
+            video.currentTime = 0;
+        }
+        video.dataset.hasPlayed = "true";
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(() => {
+                playButton.hidden = false;
+            });
+        }
+    }
+    video.dataset.pendingPlay = "true";
+    if (video.readyState >= 1) {
+        beginPlayback();
+    } else {
+        video.addEventListener(
+            "loadedmetadata",
+            beginPlayback,
+            {once:true}
+        );
+    }
+}
+/* INTERSECTION OBSERVER - VIDEO LOADING */
+if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadVideo(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            rootMargin:"450px 0px"
+        }
+    );
+    reelVideos.forEach(video => {
+        videoObserver.observe(video);
+    });
+} else {
+    reelVideos.forEach(loadVideo);
+}
+/* PAUSE OTHER VIDEOS */
+reelVideos.forEach(currentVideo => {
+    currentVideo.addEventListener("play", () => {
+        reelVideos.forEach(otherVideo => {
+            if (otherVideo !== currentVideo) {
+                otherVideo.pause();
+            }
+        });
+    });
+});
+/* CLOSING CTA - FIXED BUTTON TRANSITION */
+const closingCta = document.querySelector(".closing-cta");
+const mobileContactBar = document.querySelector(".mobile-contact-bar");
+if (
+    closingCta &&
+    mobileContactBar &&
+    "IntersectionObserver" in window
+) {
+    const closingObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (window.innerWidth <= 750) {
+                    mobileContactBar.classList.toggle(
+                        "is-hidden",
+                        entry.isIntersecting
+                    );
+                }
+            });
+        },
+        {
+            threshold:0.2,
+            rootMargin:"0px 0px -75px 0px"
+        }
+    );
+    closingObserver.observe(closingCta);
+}
+</script>
+</body>
+</html>

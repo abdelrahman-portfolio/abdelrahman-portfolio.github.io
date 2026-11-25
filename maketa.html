@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="MAKETA campaign by Abdelrahman Ahmed.">
+
+<title>MAKETA | Abdelrahman Ahmed</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #090909;
+    --surface: #131313;
+    --yellow: #ffd21f;
+    --white: #ffffff;
+    --gray: #a5a5a5;
+    --line: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 88%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    min-height: 85px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9,9,9,.96);
+    backdrop-filter: blur(15px);
+}
+
+.brand img {
+    width: 65px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.contact-btn {
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    padding: 14px 22px;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.contact-btn:hover {
+    background: var(--yellow);
+    color: #000;
+}
+
+/* ================= GENERAL ================= */
+
+.eyebrow {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    padding: 30px 0 75px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tagline {
+    font-size: clamp(42px, 4.2vw, 60px);
+    font-weight: 900;
+    letter-spacing: -2.8px;
+    line-height: 1.12;
+    margin: 25px 0;
+    max-width: 950px;
+}
+
+.hero-description {
+    color: var(--gray);
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 800px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    padding: 18px 27px;
+    font-size: 12px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-4px);
+}
+
+.text-btn {
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.text-btn:hover {
+    color: var(--yellow);
+}
+
+/* ================= MAKETA LOGO ================= */
+
+.logo-wrap {
+    width: 100%;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 20px;
+}
+
+.logo-wrap img {
+    display: block;
+    width: 100%;
+    max-width: 390px;
+    max-height: 270px;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    transition: .4s ease;
+}
+
+.logo-wrap:hover img {
+    transform: scale(1.04);
+}
+
+/* ================= MY ROLE ================= */
+
+.intro {
+    padding: 75px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.intro-block h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 22px 0;
+    line-height: 1.25;
+}
+
+.intro-block p {
+    color: var(--gray);
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 850px;
+}
+
+/* ================= MY ROLE TAGS ================= */
+
+.role-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.role-list span {
+    border: 1px solid #393939;
+    padding: 11px 14px;
+    color: #ddd;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.role-list span:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+/* ================= REELS SECTION ================= */
+
+.work {
+    padding: 90px 0 110px;
+}
+
+.reels-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.section-heading {
+    margin-bottom: 0;
+}
+
+.section-heading h2 {
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin-top: 18px;
+}
+
+/* ================= REELS GRID ================= */
+
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.reel-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.reel-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+    z-index: 2;
+}
+
+.video-container {
+    width: 100%;
+    background: #000;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+    transition: transform .4s ease;
+}
+
+.reel-card:hover .video-container video {
+    transform: scale(1.035);
+}
+
+/* ================= REEL TITLES ================= */
+
+.reel-info {
+    padding: 22px;
+}
+
+.reel-info span {
+    display: block;
+    color: var(--yellow);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.reel-info h3 {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+    transition:
+        color .3s ease,
+        transform .3s ease;
+    transform-origin: left center;
+}
+
+.reel-card:hover .reel-info h3 {
+    color: var(--yellow);
+    transform: scale(1.045);
+}
+
+/* ================= FINAL CTA ================= */
+
+.final-cta {
+    padding: 100px 20px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+}
+
+.final-cta h2 {
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.final-cta p {
+    color: var(--gray);
+    max-width: 550px;
+    margin: auto auto 30px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 30px 6%;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: var(--gray);
+    font-size: 11px;
+}
+
+footer strong {
+    color: white;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.menu-toggle,
+.mobile-contact-bar {
+    display: none;
+}
+
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .logo-wrap {
+        min-height: 220px;
+    }
+
+    .logo-wrap img {
+        max-width: 300px;
+    }
+
+    .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reels-heading {
+        align-items: flex-start;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 750px) {
+
+    body {
+        padding-bottom: 82px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+    }
+
+    header {
+        height: 68px;
+        min-height: 68px;
+        padding: 8px 5%;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow: visible;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .brand img {
+        width: 48px;
+        height: 44px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    header .contact-btn {
+        display: none;
+    }
+
+    header .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 5%;
+        right: 5%;
+        width: auto;
+        margin: 0;
+        padding: 8px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        overflow: visible;
+        background: #121212;
+        border: 1px solid #303030;
+        border-radius: 15px;
+        box-shadow: 0 16px 35px rgba(0,0,0,.48);
+        z-index: 130;
+    }
+
+    header .nav-links.open {
+        display: flex;
+    }
+
+    header .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        border: 0;
+        border-bottom: 1px solid #292929;
+        border-radius: 0;
+        color: #b8b8b8;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    header .nav-links a:last-child {
+        border-bottom: 0;
+    }
+
+    header .nav-links a.active {
+        color: var(--yellow);
+        background: rgba(255,210,31,.07);
+        border-radius: 8px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    /* MOBILE HERO */
+
+    .hero {
+        padding: 36px 0 44px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .logo-wrap {
+        order: -1;
+        min-height: 0;
+        padding: 0;
+    }
+
+    .logo-wrap img {
+        max-width: 220px;
+        max-height: 160px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 2.4px;
+    }
+
+    .hero-tagline {
+        font-size: clamp(34px, 9vw, 43px);
+        letter-spacing: -1.8px;
+        line-height: 1.2;
+        margin: 18px 0;
+    }
+
+    .hero-description {
+        font-size: 14.5px;
+        line-height: 1.8;
+        color: #BDBDBD;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        margin-top: 26px;
+    }
+
+    .primary-btn {
+        text-align: center;
+        padding: 17px 20px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    .text-btn {
+        text-align: center;
+        padding: 14px;
+        font-size: 13px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+    }
+
+    /* MOBILE MY ROLE */
+
+    .intro {
+        padding: 40px 0;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .intro-block {
+        background: rgba(255,255,255,.03);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px 20px;
+    }
+
+    .intro-block h2 {
+        font-size: 25px;
+        margin: 14px 0;
+    }
+
+    .intro-block p {
+        font-size: 14.5px;
+        line-height: 1.8;
+        color: #BDBDBD;
+    }
+
+    .role-list {
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .role-list span {
+        font-size: 12px;
+        padding: 9px 13px;
+        border-radius: 999px;
+    }
+
+    /* MOBILE REELS */
+
+    .work {
+        padding: 48px 0 56px;
+    }
+
+    .reels-heading {
+        gap: 14px;
+        margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .reels-grid {
+        display: flex;
+        gap: 14px;
+        max-width: none;
+        margin: 0 -5%;
+        padding: 4px 5% 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 5%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .reels-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reel-card {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
+        border-radius: 16px;
+    }
+
+    .reel-card:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--line);
+    }
+
+    .reel-card:hover .video-container video {
+        transform: none;
+    }
+
+    .reel-card:hover .reel-info h3 {
+        color: #fff;
+        transform: none;
+    }
+
+    .reel-info {
+        padding: 16px 18px 18px;
+    }
+
+    .reel-info h3 {
+        font-size: 18px;
+    }
+
+    /* MOBILE CTA */
+
+    .final-cta {
+        padding: 56px 20px 64px;
+    }
+
+    .final-cta h2 {
+        font-size: 40px;
+        letter-spacing: -1.5px;
+    }
+
+    .final-cta p {
+        font-size: 14.5px;
+        color: #BDBDBD;
+    }
+
+    .final-cta .primary-btn {
+        display: block;
+    }
+
+    /* MOBILE FOOTER */
+
+    footer {
+        padding: 24px 5%;
+        gap: 8px;
+        flex-direction: column;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    /* FIXED CONTACT BUTTON */
+
+    .mobile-contact-bar {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 950;
+        padding: 8px 5% calc(8px + env(safe-area-inset-bottom));
+        background: rgba(9,9,9,.97);
+        border-top: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+    }
+
+    .mobile-contact-bar a {
+        display: flex;
+        width: 100%;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        background: var(--yellow);
+        color: #080808;
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: .3px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <a href="portfolio.html" class="brand">
+        <img src="pic/af.png" alt="AF Logo">
+    </a>
+
+    <nav class="nav-links" id="mobileNav">
+
+        <a href="portfolio.html">Home</a>
+
+        <a href="posts.html">Posts</a>
+
+        <a href="videos.html">Reels</a>
+
+        <a href="campaigns.html" class="active">Campaigns</a>
+
+        <a href="personal-branding.html">My Personal Branding</a>
+
+    </nav>
+
+    <a href="portfolio.html#contact" class="contact-btn">
+        LET'S TALK ↗
+    </a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mobileNav"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container">
+
+    <div class="hero-grid">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                01 / STREET-INSPIRED CAMPAIGN
+            </div>
+
+            <div class="hero-tagline">
+                Turning Everyday Insights Into
+                <span class="yellow">Marketing Stories.</span>
+            </div>
+
+            <p class="hero-description">
+                A street-inspired campaign created to reach brand owners
+                looking for a performance marketing agency. Through humor
+                and familiar Egyptian settings, we turned everyday business
+                challenges into three relatable reels that introduced
+                MAKETA's performance-driven approach.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#reels" class="primary-btn">
+                    WATCH THE REELS ↘
+                </a>
+
+                <a href="#my-role" class="text-btn">
+                    MY ROLE ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAKETA LOGO -->
+
+        <div class="logo-wrap">
+
+            <img
+                src="logos/38.png"
+                alt="MAKETA Logo"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MY ROLE ================= -->
+
+<section class="intro" id="my-role">
+
+<div class="container">
+
+    <div class="intro-grid">
+
+        <div class="intro-block">
+
+            <div class="eyebrow">
+                MY ROLE
+            </div>
+
+            <h2>
+                From Insight to Execution.
+            </h2>
+
+            <p>
+                I developed the original campaign ideas, wrote the scripts, planned the shooting process, supervised the production on set, and collaborated closely with the video editor, sharing creative input throughout post-production to shape the final reels.
+            </p>
+
+            <div class="role-list">
+
+                <span>Idea Development</span>
+
+                <span>Scriptwriting</span>
+
+                <span>Location & Shoot Planning</span>
+
+                <span>On-Camera Performance</span>
+
+                <span>Production Supervision</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAMPAIGN REELS ================= -->
+
+<section class="work" id="reels">
+
+<div class="container">
+
+    <div class="reels-heading">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                CAMPAIGN REELS
+            </div>
+
+            <h2>
+                The <span class="yellow">Campaign Reels.</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="reels-grid">
+
+
+        <!-- REEL 01 -->
+
+        <article class="reel-card">
+
+            <div class="video-container">
+
+                <video controls playsinline preload="metadata">
+
+                    <source src="reels/7L2aaa.mp4" type="video/mp4">
+
+                    Your browser does not support HTML video.
+
+                </video>
+
+            </div>
+
+            <div class="reel-info">
+
+                <span>REEL 01</span>
+
+                <h3>Barbershop</h3>
+
+            </div>
+
+        </article>
+
+
+        <!-- REEL 02 -->
+
+        <article class="reel-card">
+
+            <div class="video-container">
+
+                <video controls playsinline preload="metadata">
+
+                    <source src="reels/Asyap.mp4" type="video/mp4">
+
+                    Your browser does not support HTML video.
+
+                </video>
+
+            </div>
+
+            <div class="reel-info">
+
+                <span>REEL 02</span>
+
+                <h3>Sugarcane Juice Shop</h3>
+
+            </div>
+
+        </article>
+
+
+        <!-- REEL 03 -->
+
+        <article class="reel-card">
+
+            <div class="video-container">
+
+                <video controls playsinline preload="metadata">
+
+                    <source src="reels/Qahwaa.mp4" type="video/mp4">
+
+                    Your browser does not support HTML video.
+
+                </video>
+
+            </div>
+
+            <div class="reel-info">
+
+                <span>REEL 03</span>
+
+                <h3>Local Café</h3>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+
+<section class="final-cta">
+
+    <div class="eyebrow">
+        MORE CREATIVE WORK
+    </div>
+
+    <h2>
+        More Ideas.<br>
+        <span class="yellow">More Stories.</span>
+    </h2>
+
+    <p>
+        Explore more campaigns and creative projects
+        developed to connect brands with their audiences.
+    </p>
+
+    <a href="campaigns.html" class="primary-btn">
+        BACK TO CAMPAIGNS ↗
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>ABDELRAHMAN AHMED</strong>
+
+    <span>
+        Content Creator · Copywriter · Creative Strategist
+    </span>
+
+</footer>
+
+
+<!-- ================= FIXED MOBILE CONTACT ================= -->
+
+<div class="mobile-contact-bar">
+
+    <a href="portfolio.html#contact">
+        LET'S TALK ↗
+    </a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* AUTO PAUSE OTHER REELS */
+
+const reels = document.querySelectorAll('.video-container video');
+
+reels.forEach((currentReel) => {
+
+    currentReel.addEventListener('play', () => {
+
+        reels.forEach((otherReel) => {
+
+            if (otherReel !== currentReel) {
+                otherReel.pause();
+            }
+
+        });
+
+    });
+
+});
+
+
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById('menuToggle');
+
+const mobileNav = document.getElementById('mobileNav');
+
+
+function closeMobileMenu() {
+
+    if (!menuToggle || !mobileNav) return;
+
+    mobileNav.classList.remove('open');
+
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    menuToggle.setAttribute(
+        'aria-label',
+        'Open navigation menu'
+    );
+
+}
+
+
+if (menuToggle && mobileNav) {
+
+    menuToggle.addEventListener('click', () => {
+
+        const isOpen = mobileNav.classList.toggle('open');
+
+        menuToggle.setAttribute(
+            'aria-expanded',
+            String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+            'aria-label',
+            isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+
+    });
+
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+
+        link.addEventListener('click', closeMobileMenu);
+
+    });
+
+
+    document.addEventListener('click', event => {
+
+        if (
+            !mobileNav.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+
+    document.addEventListener('keydown', event => {
+
+        if (event.key === 'Escape') {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+
+    window.addEventListener('resize', () => {
+
+        if (window.innerWidth > 750) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

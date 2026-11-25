@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected Campaigns | Abdelrahman</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080808;
+  --surface: #121212;
+  --yellow: #ffd21f;
+  --white: #fff;
+  --gray: #a7a7a7;
+  --line: #292929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 88%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  height: 90px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.96);
+  backdrop-filter: blur(12px);
+}
+
+.brand img {
+  width: 65px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #c5c5c5;
+  font-size: 14px;
+  transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--yellow);
+}
+
+.contact-btn {
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  padding: 16px 25px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.contact-btn:hover {
+  background: var(--yellow);
+  color: #000;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] {
+  border-color: var(--yellow);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu-backdrop {
+  display: none;
+}
+
+/* INTRO */
+
+.eyebrow {
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.yellow { color: var(--yellow); }
+
+.page-intro {
+  padding: 115px 0 65px;
+}
+
+.page-intro h1 {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 900;
+  line-height: .98;
+  letter-spacing: -5px;
+  margin: 30px 0;
+}
+
+.page-description {
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 650px;
+}
+
+.intro-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 55px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro-bottom h3 { font-size: 20px; }
+
+.project-total {
+  color: var(--yellow);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+/* CAMPAIGNS */
+
+.campaign-section {
+  padding-bottom: 130px;
+}
+
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+}
+
+.campaign-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: .35s;
+}
+
+.campaign-card:hover {
+  border-color: var(--yellow);
+  transform: translateY(-7px);
+}
+
+/* CAMPAIGN VISUAL */
+
+.campaign-visual {
+  height: 425px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 35px;
+  background: #141414;
+}
+
+.campaign-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transition: transform .7s ease;
+}
+
+.campaign-card:hover .campaign-image {
+  transform: scale(1.04);
+}
+
+.campaign-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.78) 0%,
+      rgba(0,0,0,.40) 48%,
+      rgba(0,0,0,.10) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.65) 0%,
+      transparent 65%
+    );
+}
+
+/* TOP LABEL */
+
+.visual-top {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visual-category {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.visual-number {
+  font-size: 12px;
+  font-weight: 800;
+  color: #d8d8d8;
+}
+
+/* HEADLINES */
+
+.visual-bottom {
+  position: absolute;
+  z-index: 5;
+  left: 34px;
+  bottom: 42px;
+  width: calc(100% - 68px);
+}
+
+.visual-highlight {
+  display: block;
+  max-width: 85%;
+  font-size: clamp(32px, 2.65vw, 44px);
+  font-weight: 900;
+  line-height: .99;
+  letter-spacing: -1.5px;
+  color: #fff;
+  text-transform: uppercase;
+  overflow-wrap: normal;
+  word-break: normal;
+  transition: color .3s ease;
+}
+
+.campaign-card:hover .visual-highlight {
+  color: var(--yellow);
+}
+
+/* LOGOS */
+
+.visual-logo {
+  position: absolute;
+  z-index: 3;
+  top: 135px;
+  left: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.visual-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* MAKETA */
+
+.logo-maketa {
+  width: 175px;
+  height: 90px;
+}
+
+/* SAMEH GEBREIL */
+
+.logo-siemens {
+  width: 175px;
+  height: 90px;
+}
+
+/* MIRROR MEDIA */
+
+.logo-mirror {
+  top: 125px;
+  left: 40px;
+  width: 155px;
+  height: 125px;
+}
+
+.logo-mirror img {
+  filter: drop-shadow(0 0 12px rgba(255,25,35,.20));
+}
+
+/* TRADE HOUSE */
+
+.logo-trade {
+  top: 125px;
+  left: 42px;
+  width: 220px;
+  height: 125px;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.logo-trade img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent !important;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.08));
+}
+
+/* IMAGE POSITIONING */
+
+.visual-maketa .campaign-image {
+  object-position: center;
+}
+
+.visual-siemens .campaign-image {
+  object-position: center;
+}
+
+.visual-mirror .campaign-image {
+  object-position: center;
+}
+
+.visual-trade .campaign-image {
+  object-position: center;
+}
+
+/* CAMPAIGN INFO */
+
+.campaign-info {
+  padding: 30px;
+  background: var(--surface);
+}
+
+.campaign-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.campaign-meta span {
+  color: var(--yellow);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.campaign-info h3 {
+  font-size: 27px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  transition: .3s;
+}
+
+.campaign-card:hover .campaign-info h3 {
+  color: var(--yellow);
+}
+
+.campaign-info p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 560px;
+}
+
+.view-project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.view-project span:last-child {
+  color: var(--yellow);
+  font-size: 22px;
+  transition: .3s;
+}
+
+.campaign-card:hover .view-project span:last-child {
+  transform: translate(5px,-5px);
+}
+
+/* CTA */
+
+.final-cta {
+  text-align: center;
+  padding: 110px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.final-cta h2 {
+  font-size: clamp(40px,6vw,75px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 25px 0;
+  letter-spacing: -3px;
+}
+
+.final-cta p {
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.9;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: var(--yellow);
+  color: #000;
+  padding: 18px 28px;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .3s;
+}
+
+.primary-btn:hover {
+  background: white;
+  transform: translateY(-4px);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 6%;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+footer strong { color: white; }
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .campaign-grid {
+    gap: 20px;
+  }
+
+  .campaign-visual {
+    height: 340px;
+    padding: 25px;
+  }
+
+  .visual-bottom {
+    left: 24px;
+    bottom: 28px;
+    width: calc(100% - 48px);
+  }
+
+  .visual-highlight {
+    font-size: clamp(28px, 3.2vw, 38px);
+    max-width: 85%;
+  }
+
+  .visual-logo {
+    top: 110px;
+    left: 28px;
+  }
+
+  .logo-maketa {
+    width: 150px;
+    height: 80px;
+  }
+
+  .logo-siemens {
+    width: 145px;
+    height: 80px;
+  }
+
+  .logo-mirror {
+    top: 95px;
+    left: 25px;
+    width: 125px;
+    height: 105px;
+  }
+
+  .logo-trade {
+    top: 95px;
+    left: 25px;
+    width: 175px;
+    height: 100px;
+  }
+
+  .campaign-info {
+    padding: 22px;
+  }
+
+  .campaign-info h3 {
+    font-size: 22px;
+  }
+}
+
+/* MOBILE ONLY */
+
+@media (max-width: 600px) {
+
+  /* HEADER */
+
+  header {
+    height: 75px;
+    min-height: 75px;
+    flex-wrap: nowrap;
+    padding: 10px 6%;
+    gap: 0;
+  }
+
+  .brand img {
+    width: 48px;
+    height: 45px;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  /* MOBILE NAVIGATION */
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 6%;
+    right: 6%;
+    width: auto;
+    order: initial;
+    overflow: visible;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px;
+    background: #121212;
+    border: 1px solid #303030;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.55);
+    z-index: 120;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    font-size: 15px;
+    padding: 17px 14px;
+    color: #bdbdbd;
+    border-bottom: 1px solid #292929;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .nav-links a.active {
+    color: var(--yellow);
+  }
+
+  .mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.48);
+    z-index: 95;
+  }
+
+  .mobile-menu-backdrop.is-visible {
+    display: block;
+  }
+
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+  .contact-btn {
+    display: none;
+  }
+
+  /* PAGE */
+
+  .container {
+    width: 90%;
+  }
+
+  .page-intro {
+    padding: 65px 0 45px;
+  }
+
+  .page-intro h1 {
+    font-size: 52px;
+    letter-spacing: -3px;
+  }
+
+  .page-description {
+    font-size: 14px;
+  }
+
+  .intro-bottom {
+    margin-top: 35px;
+    padding-bottom: 20px;
+  }
+
+  .intro-bottom h3 {
+    font-size: 17px;
+  }
+
+  .project-total {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  /* CAMPAIGN GRID */
+
+  .campaign-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* RESPONSIVE IMAGE SIZE */
+
+  .campaign-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .campaign-image {
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* IMAGE LABELS */
+
+  .visual-top {
+    position: relative;
+    z-index: 4;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .visual-category {
+    font-size: clamp(8px, 2.5vw, 10px);
+    letter-spacing: 1px;
+  }
+
+  .visual-number {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  /* IMAGE HEADLINES */
+
+  .visual-bottom {
+    left: 6%;
+    bottom: 7%;
+    width: 88%;
+  }
+
+  .visual-highlight {
+    font-size: clamp(25px, 7.5vw, 34px);
+    line-height: .98;
+    letter-spacing: -1px;
+    max-width: 90%;
+  }
+
+  /* RESPONSIVE LOGOS */
+
+  .visual-logo {
+    top: 26%;
+    left: 6%;
+  }
+
+  .logo-maketa {
+    width: 44%;
+    height: 30%;
+  }
+
+  .logo-siemens {
+    width: 42%;
+    height: 30%;
+  }
+
+  .logo-mirror {
+    top: 24%;
+    left: 6%;
+    width: 30%;
+    height: 34%;
+  }
+
+  .logo-trade {
+    top: 24%;
+    left: 6%;
+    width: 42%;
+    height: 34%;
+  }
+
+  /* CAMPAIGN INFORMATION */
+
+  .campaign-info {
+    padding: 20px;
+  }
+
+  .campaign-meta {
+    margin-bottom: 16px;
+  }
+
+  .campaign-meta span {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .campaign-info h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+  }
+
+  .campaign-info p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .view-project {
+    margin-top: 22px;
+    padding-top: 18px;
+    font-size: 11px;
+  }
+
+  /* BOTTOM SECTIONS */
+
+  .campaign-section {
+    padding-bottom: 65px;
+  }
+
+  .final-cta {
+    padding: 75px 20px;
+  }
+
+  .final-cta h2 {
+    font-size: 40px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 360px) {
+
+  .page-intro h1 {
+    font-size: 46px;
+  }
+
+  .campaign-visual {
+    aspect-ratio: 4 / 3;
+  }
+
+  .visual-highlight {
+    font-size: 25px;
+  }
+
+  .campaign-info {
+    padding: 16px;
+  }
+
+  .campaign-info h3 {
+    font-size: 19px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="portfolio.html" class="brand">
+    <img src="pic/af.png" alt="AF Logo">
+  </a>
+
+  <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+    <a href="portfolio.html">Home</a>
+    <a href="posts.html">Posts</a>
+    <a href="videos.html">Reels</a>
+    <a href="campaigns.html" class="active">Campaigns</a>
+    <a href="personal-branding.html">My Personal Branding</a>
+  </nav>
+
+  <button
+    class="mobile-menu-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="site-navigation"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <a href="portfolio.html#contact" class="contact-btn">
+    LET'S TALK ↗
+  </a>
+
+</header>
+
+<div class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+<main>
+
+<!-- PAGE INTRO -->
+
+<section class="page-intro">
+  <div class="container">
+
+    <div class="eyebrow">01 / SELECTED CAMPAIGNS</div>
+
+    <h1>
+      Creative<br>
+      <span class="yellow">Campaigns</span>
+    </h1>
+
+    <p class="page-description">
+      Selected campaigns built around creative ideas,
+      audience insights, and strategic storytelling.
+    </p>
+
+    <div class="intro-bottom">
+      <h3>Selected Projects</h3>
+      <span class="project-total">04 CAMPAIGNS</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAMPAIGNS -->
+
+<section class="campaign-section">
+<div class="container">
+
+<div class="campaign-grid">
+
+<!-- 01 MAKETA -->
+
+<a href="maketa.html" class="campaign-card">
+
+  <div class="campaign-visual visual-maketa">
+
+    <img
+      src="pic/كامبين ماكيتا.png"
+      alt="MAKETA Campaign"
+      class="campaign-image"
+    >
+
+    <div class="visual-top">
+      <span class="visual-category">STREET-INSPIRED CAMPAIGN</span>
+      <span class="visual-number">01 / 04</span>
+    </div>
+
+    <div class="visual-logo logo-maketa">
+      <img
+        src="logos/لوجو كامبين/38.png"
+        alt="MAKETA Logo"
+      >
+    </div>
+
+    <div class="visual-bottom">
+      <span class="visual-highlight">
+        REAL-LIFE<br>INSIGHTS
+      </span>
+    </div>
+
+  </div>
+
+  <div class="campaign-info">
+
+    <div class="campaign-meta">
+      <span>01 / STREET MARKETING</span>
+    </div>
+
+    <h3>MAKETA</h3>
+
+    <p>
+      A street-inspired campaign built around everyday insights,
+      turning familiar situations into humorous and relatable
+      short-form storytelling.
+    </p>
+
+    <div class="view-project">
+      <span>EXPLORE CAMPAIGN</span>
+      <span>↗</span>
+    </div>
+
+  </div>
+
+</a>
+
+<!-- 02 SAMEH GEBREIL x SIEMENS -->
+
+<a href="sameh-gabrile-siemens.html" class="campaign-card">
+
+  <div class="campaign-visual visual-siemens">
+
+    <img
+      src="pic/كامبين mcb.png"
+      alt="Siemens MCB Campaign"
+      class="campaign-image"
+    >
+
+    <div class="visual-top">
+      <span class="visual-category">PRODUCT LAUNCH</span>
+      <span class="visual-number">02 / 04</span>
+    </div>
+
+    <div class="visual-logo logo-siemens">
+      <img
+        src="logos/لوجو كامبين/sameh_gabriel_logo_transparent.png"
+        alt="Sameh Gebreil Logo"
+      >
+    </div>
+
+    <div class="visual-bottom">
+      <span class="visual-highlight">
+        NEW<br>COLLABORATION
+      </span>
+    </div>
+
+  </div>
+
+  <div class="campaign-info">
+
+    <div class="campaign-meta">
+      <span>02 / PRODUCT LAUNCH</span>
+    </div>
+
+    <h3>Sameh Gebreil × Siemens</h3>
+
+    <p>
+      A product launch campaign for Siemens, developed in
+      collaboration with Sameh Gebreil to introduce the new
+      MCB through engaging promotional content.
+    </p>
+
+    <div class="view-project">
+      <span>EXPLORE CAMPAIGN</span>
+      <span>↗</span>
+    </div>
+
+  </div>
+
+</a>
+
+<!-- 03 MIRROR MEDIA -->
+
+<a href="mirror-media.html" class="campaign-card">
+
+  <div class="campaign-visual visual-mirror">
+
+    <img
+      src="pic/كامبين ميرور.png"
+      alt="Mirror Media Campaign"
+      class="campaign-image"
+    >
+
+    <div class="visual-top">
+      <span class="visual-category">AUDIENCE TARGETING</span>
+      <span class="visual-number">03 / 04</span>
+    </div>
+
+    <div class="visual-logo logo-mirror">
+      <img
+        src="logos/لوجو كامبين/37.png"
+        alt="Mirror Media Logo"
+      >
+    </div>
+
+    <div class="visual-bottom">
+      <span class="visual-highlight">
+        DOCTORS<br>CAMPAIGN
+      </span>
+    </div>
+
+  </div>
+
+  <div class="campaign-info">
+
+    <div class="campaign-meta">
+      <span>03 / TARGETED CAMPAIGN</span>
+    </div>
+
+    <h3>Mirror Media</h3>
+
+    <p>
+      A targeted campaign for Mirror Media, focused on reaching
+      doctors through audience-specific messaging and tailored content.
+    </p>
+
+    <div class="view-project">
+      <span>EXPLORE CAMPAIGN</span>
+      <span>↗</span>
+    </div>
+
+  </div>
+
+</a>
+
+<!-- 04 TRADE HOUSE -->
+
+<a href="trade-store.html" class="campaign-card">
+
+  <div class="campaign-visual visual-trade">
+
+    <img
+      src="pic/كامبين باور بانك.png"
+      alt="Trade House Campaign"
+      class="campaign-image"
+    >
+
+    <div class="visual-top">
+      <span class="visual-category">PRODUCT ANNOUNCEMENT</span>
+      <span class="visual-number">04 / 04</span>
+    </div>
+
+    <div class="visual-logo logo-trade">
+      <img
+        src="logos/لوجو كامبين/19.png"
+        alt="Trade House Logo"
+      >
+    </div>
+
+    <div class="visual-bottom">
+      <span class="visual-highlight">
+        NEW<br>LAUNCH
+      </span>
+    </div>
+
+  </div>
+
+  <div class="campaign-info">
+
+    <div class="campaign-meta">
+      <span>04 / PRODUCT LAUNCH</span>
+    </div>
+
+    <h3>Trade House</h3>
+
+    <p>
+      A product launch campaign for Trade House, introducing
+      new chargers and power banks through creative
+      promotional content.
+    </p>
+
+    <div class="view-project">
+      <span>EXPLORE CAMPAIGN</span>
+      <span>↗</span>
+    </div>
+
+  </div>
+
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+
+  <div class="eyebrow">HAVE A PROJECT IN MIND?</div>
+
+  <h2>
+    Let's create<br>
+    <span class="yellow">something memorable.</span>
+  </h2>
+
+  <p>
+    Have a brand, a product, or an idea that needs the right
+    creative direction? Let's talk.
+  </p>
+
+  <a href="portfolio.html#contact" class="primary-btn">
+    LET'S WORK TOGETHER ↗
+  </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <strong>ABDELRAHMAN AHMED</strong>
+  <span>Content Creator · Copywriter · Creative Strategist</span>
+</footer>
+
+<!-- MOBILE MENU SCRIPT -->
+
+<script>
+(() => {
+
+  const menuButton = document.querySelector(".mobile-menu-toggle");
+  const navigation = document.querySelector(".nav-links");
+  const backdrop = document.querySelector(".mobile-menu-backdrop");
+
+  if (!menuButton || !navigation || !backdrop) return;
+
+  const setMenuState = (isOpen) => {
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen ? "Close menu" : "Open menu"
+    );
+
+    navigation.classList.toggle("is-open", isOpen);
+
+    backdrop.classList.toggle("is-visible", isOpen);
+
+    document.body.classList.toggle("mobile-menu-open", isOpen);
+  };
+
+  menuButton.addEventListener("click", () => {
+
+    const isOpen =
+      menuButton.getAttribute("aria-expanded") === "true";
+
+    setMenuState(!isOpen);
+
+  });
+
+  backdrop.addEventListener("click", () => {
+    setMenuState(false);
+  });
+
+  navigation.querySelectorAll("a").forEach((link) => {
+
+    link.addEventListener("click", () => {
+      setMenuState(false);
+    });
+
+  });
+
+  document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+      setMenuState(false);
+    }
+
+  });
+
+  window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 600) {
+      setMenuState(false);
+    }
+
+  });
+
+})();
+</script>
+
+</body>
+</html>

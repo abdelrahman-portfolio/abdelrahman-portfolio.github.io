@@ -1,0 +1,1819 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Trade House x SKYWORTH campaign by Abdelrahman Ahmed.">
+
+<title>Trade House × SKYWORTH | Abdelrahman Ahmed</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+:root {
+    --bg: #080808;
+    --surface: #121212;
+    --yellow: #ffd21f;
+    --white: #fff;
+    --gray: #a5a5a5;
+    --line: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 88%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+.eyebrow {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+    min-height: 90px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,.96);
+    backdrop-filter: blur(12px);
+}
+
+.brand img {
+    width: 65px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #c5c5c5;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.contact-btn {
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    padding: 15px 24px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.contact-btn:hover {
+    background: var(--yellow);
+    color: #000;
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            ellipse at 76% 50%,
+            rgba(255,210,31,.12),
+            transparent 35%
+        ),
+        linear-gradient(110deg, #080808 45%, #111 100%);
+}
+
+.hero::before {
+    content: "SKYWORTH";
+    position: absolute;
+    right: -3%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(100px, 17vw, 260px);
+    font-weight: 900;
+    letter-spacing: -12px;
+    color: rgba(255,255,255,.025);
+    white-space: nowrap;
+}
+
+.hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 65px 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 6vw, 90px);
+    font-weight: 900;
+    line-height: .98;
+    letter-spacing: -5px;
+    margin: 30px 0 25px;
+}
+
+.hero-description {
+    max-width: 520px;
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* =====================================
+   HERO DETAILS
+===================================== */
+
+.hero-details {
+    display: flex;
+    gap: 55px;
+    margin-top: 42px;
+    padding-top: 25px;
+    border-top: 1px solid var(--line);
+    width: fit-content;
+}
+
+.detail strong {
+    display: block;
+    font-size: 32px;
+    color: var(--yellow);
+    margin-bottom: 7px;
+}
+
+.detail span {
+    color: var(--gray);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+
+/* =====================================
+   HERO PRODUCT
+===================================== */
+
+.hero-visual {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product-glow {
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background: rgba(255,210,31,.10);
+    filter: blur(85px);
+}
+
+.product-ring {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255,210,31,.18);
+    border-radius: 50%;
+}
+
+.hero-product {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 510px;
+    height: 560px;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 35px rgba(0,0,0,.65));
+    animation: productFloat 3.8s ease-in-out infinite;
+}
+
+.product-tag {
+    position: absolute;
+    z-index: 3;
+    bottom: 45px;
+    right: 0;
+    padding: 13px 19px;
+    background: rgba(8,8,8,.8);
+    border: 1px solid rgba(255,210,31,.55);
+    color: var(--yellow);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes productFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =====================================
+   HERO MOBILE ACTIONS
+===================================== */
+
+.hero-actions {
+    display: none;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    padding: 18px 30px;
+    font-size: 12px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-4px);
+}
+
+.text-btn {
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+
+/* =====================================
+   CAMPAIGN INTRO
+===================================== */
+
+.campaign-content {
+    padding: 75px 0 35px;
+}
+
+.section-label {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.campaign-content h2 {
+    font-size: clamp(35px, 5vw, 58px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+
+/* =====================================
+   PRODUCT SECTIONS
+===================================== */
+
+.product-section {
+    padding: 35px 0 75px;
+}
+
+.product-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.product-heading h2 {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.product-heading h2 span {
+    color: var(--yellow);
+}
+
+.product-heading .count {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+
+/* =====================================
+   REELS GRID
+===================================== */
+
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.reel-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: .3s;
+    min-width: 0;
+}
+
+.reel-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-5px);
+}
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #050505;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #050505;
+}
+
+.video-error {
+    position: absolute;
+    inset: 0;
+    background: #151515;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.video-error[hidden] {
+    display: none;
+}
+
+.video-error a {
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+.reel-info {
+    padding: 23px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reel-number {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.product-name {
+    font-size: 11px;
+    color: var(--yellow);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   SEPARATOR
+===================================== */
+
+.section-separator {
+    height: 1px;
+    background: var(--line);
+    margin: 0 0 55px;
+}
+
+
+/* =====================================
+   FINAL CTA
+===================================== */
+
+.final-cta {
+    padding: 100px 20px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    background: #090909;
+}
+
+.final-cta h2 {
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.final-cta p {
+    color: var(--gray);
+    max-width: 550px;
+    margin: auto auto 30px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    padding: 35px 6%;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: var(--gray);
+    font-size: 11px;
+}
+
+footer strong {
+    color: #fff;
+}
+
+
+/* =====================================
+   MOBILE NAVIGATION ELEMENTS
+===================================== */
+
+.menu-toggle,
+.mobile-contact-bar {
+    display: none;
+}
+
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media(max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .hero-product {
+        height: 450px;
+    }
+
+    .hero-visual {
+        min-height: 450px;
+    }
+
+    .reels-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+   MATCHING MAKETA & MIRROR MEDIA
+===================================== */
+
+@media(max-width: 750px) {
+
+    html {
+        scroll-padding-top: 100px;
+    }
+
+    body {
+        padding-bottom: 82px;
+    }
+
+
+    /* HEADER */
+
+    header {
+        height: 68px;
+        min-height: 68px;
+        padding: 8px 5%;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow: visible;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .brand img {
+        width: 48px;
+        height: 44px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    header .contact-btn {
+        display: none;
+    }
+
+
+    /* DROPDOWN MENU */
+
+    header .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 5%;
+        right: 5%;
+        width: auto;
+        margin: 0;
+        padding: 8px;
+
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+
+        background: #121212;
+        border: 1px solid #303030;
+        border-radius: 15px;
+        box-shadow: 0 16px 35px rgba(0,0,0,.48);
+        z-index: 130;
+    }
+
+    header .nav-links.open {
+        display: flex;
+    }
+
+    header .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px;
+
+        border: 0;
+        border-bottom: 1px solid #292929;
+        border-radius: 0;
+
+        color: #b8b8b8;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: normal;
+    }
+
+    header .nav-links a:last-child {
+        border-bottom: 0;
+    }
+
+    header .nav-links a.active {
+        color: var(--yellow);
+        background: rgba(255,210,31,.07);
+        border-radius: 8px;
+    }
+
+
+    /* CONTAINER */
+
+    .container {
+        width: 90%;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 0;
+        display: block;
+        padding: 0;
+        background:
+            radial-gradient(
+                ellipse at 50% 22%,
+                rgba(255,210,31,.10),
+                transparent 50%
+            ),
+            #080808;
+    }
+
+    .hero::before {
+        font-size: 85px;
+        letter-spacing: -5px;
+        right: -15%;
+        top: 17%;
+        transform: none;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 32px 0 44px;
+    }
+
+    .hero-visual {
+        order: -1;
+        min-height: 290px;
+        height: 290px;
+    }
+
+    .hero-product {
+        width: 100%;
+        max-width: 290px;
+        height: 300px;
+        object-fit: contain;
+    }
+
+    .product-glow,
+    .product-ring {
+        width: 245px;
+        height: 245px;
+    }
+
+    .product-glow {
+        filter: blur(65px);
+    }
+
+    .product-tag {
+        bottom: 4px;
+        right: 0;
+        font-size: 9px;
+        padding: 10px 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 2.4px;
+        line-height: 1.6;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 12vw, 58px);
+        letter-spacing: -2.5px;
+        line-height: 1.05;
+        margin: 16px 0 18px;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 14.5px;
+        line-height: 1.8;
+        color: #bdbdbd;
+        text-align: left;
+    }
+
+
+    /* HERO DETAILS */
+
+    .hero-details {
+        width: 100%;
+        justify-content: center;
+        gap: 45px;
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+
+    .detail strong {
+        font-size: 27px;
+    }
+
+    .detail span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 25px;
+    }
+
+    .hero-actions .primary-btn {
+        text-align: center;
+        padding: 17px 20px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+
+    .hero-actions .text-btn {
+        text-align: center;
+        padding: 14px;
+        font-size: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+    }
+
+
+    /* CAMPAIGN INTRO */
+
+    .campaign-content {
+        padding: 45px 0 30px;
+    }
+
+    .section-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .campaign-content h2 {
+        font-size: 34px;
+        letter-spacing: -1.5px;
+        line-height: 1.15;
+    }
+
+
+    /* PRODUCT SECTIONS */
+
+    .product-section {
+        padding: 35px 0 45px;
+    }
+
+    .product-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding-bottom: 20px;
+        margin-bottom: 22px;
+    }
+
+    .product-heading h2 {
+        font-size: clamp(28px, 8vw, 36px);
+        letter-spacing: -1.5px;
+        line-height: 1.15;
+    }
+
+    .product-heading .count {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+
+    /* HORIZONTAL REELS CAROUSEL */
+
+    .reels-grid {
+        display: flex;
+        gap: 14px;
+
+        max-width: none;
+        margin: 0 -5%;
+        padding: 4px 5% 18px;
+
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 5%;
+
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .reels-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reel-card {
+        flex: 0 0 78%;
+        min-width: 0;
+        scroll-snap-align: start;
+        border-radius: 16px;
+    }
+
+    .reel-card:hover {
+        transform: none;
+        border-color: var(--line);
+    }
+
+    .video-wrapper {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .reel-info {
+        padding: 16px 18px 18px;
+        gap: 8px;
+    }
+
+    .reel-number {
+        font-size: 12px;
+    }
+
+    .product-name {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+
+    /* SECTION SEPARATOR */
+
+    .section-separator {
+        margin: 0 0 25px;
+    }
+
+
+    /* MORE CREATIVE WORK */
+
+    .final-cta {
+        padding: 65px 22px 68px;
+    }
+
+    .final-cta .eyebrow {
+        font-size: 10px;
+        letter-spacing: 2.3px;
+    }
+
+    .final-cta h2 {
+        font-size: clamp(35px, 9vw, 43px);
+        letter-spacing: -1.8px;
+        line-height: 1.08;
+        margin: 20px 0 24px;
+    }
+
+    .final-cta p {
+        max-width: 360px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #bdbdbd;
+        margin-bottom: 25px;
+    }
+
+    .final-cta .primary-btn {
+        display: flex;
+        width: min(100%, 332px);
+        min-height: 49px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 11px;
+        border-radius: 9px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 5%;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+
+    /* FIXED CONTACT BUTTON */
+
+    .mobile-contact-bar {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 950;
+
+        padding: 8px 5% calc(8px + env(safe-area-inset-bottom));
+
+        background: rgba(9,9,9,.97);
+        border-top: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+    }
+
+    .mobile-contact-bar a {
+        display: flex;
+        width: 100%;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--yellow);
+        color: #080808;
+
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: .3px;
+    }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media(max-width: 380px) {
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-visual {
+        min-height: 265px;
+        height: 265px;
+    }
+
+    .hero-product {
+        height: 275px;
+    }
+
+    .reel-card {
+        flex-basis: 83%;
+    }
+
+}
+
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header>
+
+    <a href="portfolio.html" class="brand">
+        <img src="pic/af.png" alt="AF Logo">
+    </a>
+
+    <nav class="nav-links" id="mobileNav">
+
+        <a href="portfolio.html">Home</a>
+
+        <a href="posts.html">Posts</a>
+
+        <a href="videos.html">Reels</a>
+
+        <a href="campaigns.html" class="active">Campaigns</a>
+
+        <a href="personal-branding.html">My Personal Branding</a>
+
+    </nav>
+
+    <a href="portfolio.html#contact" class="contact-btn">
+        LET'S TALK ↗
+    </a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mobileNav"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-grid">
+
+
+            <!-- HERO CONTENT -->
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    CAMPAIGN 04 / PRODUCT LAUNCH
+                </div>
+
+                <h1>
+                    TRADE HOUSE<br>
+                    <span class="yellow">× SKYWORTH</span>
+                </h1>
+
+                <p class="hero-description">
+                    A product launch campaign introducing
+                    SKYWORTH's new power bank and charger range
+                    for Trade House.
+                </p>
+
+
+                <!-- CAMPAIGN DETAILS -->
+
+                <div class="hero-details">
+
+                    <div class="detail">
+
+                        <strong>06</strong>
+
+                        <span>SHORT-FORM REELS</span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <strong>02</strong>
+
+                        <span>PRODUCT CATEGORIES</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOBILE ACTIONS -->
+
+                <div class="hero-actions">
+
+                    <a href="#power-banks" class="primary-btn">
+                        EXPLORE POWER BANK REELS ↘
+                    </a>
+
+                    <a href="#chargers" class="text-btn">
+                        EXPLORE CHARGER REELS ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT HERO IMAGE -->
+
+            <div class="hero-visual">
+
+                <div class="product-glow"></div>
+
+                <div class="product-ring"></div>
+
+                <img
+                    id="heroProduct"
+                    class="hero-product"
+                    src="pic/البور بانك.png"
+                    alt="SKYWORTH VETA 29 Power Bank"
+                >
+
+                <div class="product-tag">
+                    SKYWORTH VETA 29
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CAMPAIGN CONTENT
+===================================== -->
+
+<section class="campaign-content">
+
+    <div class="container">
+
+        <div class="section-label">
+            CAMPAIGN CONTENT
+        </div>
+
+        <h2>
+            New Products
+            <span class="yellow">New Possibilities</span>
+        </h2>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     POWER BANKS
+     3 VIDEOS GROUPED TOGETHER
+===================================== -->
+
+<section class="product-section" id="power-banks">
+
+    <div class="container">
+
+        <div class="section-label">
+            01 / PRODUCT CATEGORY
+        </div>
+
+        <div class="product-heading">
+
+            <h2>
+                <span>VETA 29</span> Power Bank
+            </h2>
+
+            <div class="count">
+                03 REELS
+            </div>
+
+        </div>
+
+
+        <div class="reels-grid">
+
+
+            <!-- POWER BANK REEL 01 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Power%20Bank01.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 01
+                    </span>
+
+                    <span class="product-name">
+                        VETA 29 POWER BANK
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- POWER BANK REEL 02 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Power%20Bank02.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 02
+                    </span>
+
+                    <span class="product-name">
+                        VETA 29 POWER BANK
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- POWER BANK REEL 03 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Power%20Bank03.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 03
+                    </span>
+
+                    <span class="product-name">
+                        VETA 29 POWER BANK
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SEPARATOR -->
+
+<div class="container">
+    <div class="section-separator"></div>
+</div>
+
+
+
+<!-- =====================================
+     CHARGERS
+     3 VIDEOS GROUPED TOGETHER
+===================================== -->
+
+<section class="product-section" id="chargers">
+
+    <div class="container">
+
+        <div class="section-label">
+            02 / PRODUCT CATEGORY
+        </div>
+
+        <div class="product-heading">
+
+            <h2>
+                <span>C-140W &</span> 120W Charger
+            </h2>
+
+            <div class="count">
+                03 REELS
+            </div>
+
+        </div>
+
+
+        <div class="reels-grid">
+
+
+            <!-- CHARGER REEL 01 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Charger01.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 01
+                    </span>
+
+                    <span class="product-name">
+                        C-140W & 120W CHARGER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CHARGER REEL 02 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Charger02.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 02
+                    </span>
+
+                    <span class="product-name">
+                        C-140W & 120W CHARGER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CHARGER REEL 03 -->
+
+            <article class="reel-card">
+
+                <div class="video-wrapper">
+
+                    <video
+                        class="reel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        src="reels/trade%20house/Charger03.mp4">
+                    </video>
+
+                    <div class="video-error" hidden>
+                        <span>Video could not be loaded. Check the file location.</span>
+                    </div>
+
+                </div>
+
+                <div class="reel-info">
+
+                    <span class="reel-number">
+                        REEL 03
+                    </span>
+
+                    <span class="product-name">
+                        C-140W & 120W CHARGER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     MORE CREATIVE WORK
+     STANDARD FOR ALL CAMPAIGNS
+===================================== -->
+
+<section class="final-cta">
+
+    <div class="eyebrow">
+        MORE CREATIVE WORK
+    </div>
+
+    <h2>
+        More Ideas.<br>
+        <span class="yellow">More Stories.</span>
+    </h2>
+
+    <p>
+        Explore more campaigns and creative projects
+        developed to connect brands with their audiences.
+    </p>
+
+    <a href="campaigns.html" class="primary-btn">
+        BACK TO CAMPAIGNS ↗
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <strong>ABDELRAHMAN AHMED</strong>
+
+    <span>
+        Content Creator | Copywriter | Content Strategist
+    </span>
+
+    <span>
+        © 2026
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================
+     FIXED MOBILE CONTACT BUTTON
+===================================== -->
+
+<div class="mobile-contact-bar">
+
+    <a href="portfolio.html#contact">
+        LET'S TALK ↗
+    </a>
+
+</div>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+
+/* =====================================
+   PRODUCT IMAGE FALLBACK
+===================================== */
+
+const productImage = document.getElementById("heroProduct");
+
+const imageCandidates = [
+    "pic/البور بانك.png",
+    "pic/البور بانك.webp",
+    "pic/البور بانك.jpg",
+    "pic/البور بانك.jpeg",
+    "pic/الباور بانك.png",
+    "pic/الباور بانك.webp",
+    "pic/الباور بانك.jpg"
+];
+
+let imageIndex = 0;
+
+productImage.addEventListener("error", function () {
+
+    imageIndex++;
+
+    if (imageIndex < imageCandidates.length) {
+
+        productImage.src = imageCandidates[imageIndex];
+
+    } else {
+
+        productImage.style.display = "none";
+
+    }
+
+});
+
+
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+const menuToggle = document.getElementById('menuToggle');
+
+const mobileNav = document.getElementById('mobileNav');
+
+
+function closeMobileMenu() {
+
+    if (!menuToggle || !mobileNav) return;
+
+    mobileNav.classList.remove('open');
+
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    menuToggle.setAttribute(
+        'aria-label',
+        'Open navigation menu'
+    );
+
+}
+
+
+if (menuToggle && mobileNav) {
+
+    menuToggle.addEventListener('click', () => {
+
+        const isOpen = mobileNav.classList.toggle('open');
+
+        menuToggle.setAttribute(
+            'aria-expanded',
+            String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+            'aria-label',
+            isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+
+    });
+
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+
+        link.addEventListener('click', closeMobileMenu);
+
+    });
+
+
+    document.addEventListener('click', event => {
+
+        if (
+            !mobileNav.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+
+    document.addEventListener('keydown', event => {
+
+        if (event.key === 'Escape') {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+
+    window.addEventListener('resize', () => {
+
+        if (window.innerWidth > 750) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+}
+
+
+/* =====================================
+   VIDEO PLAYBACK + ERROR HANDLING
+===================================== */
+
+const videos = document.querySelectorAll(".reel-video");
+
+videos.forEach(video => {
+
+    const errorBox = video.closest(".video-wrapper")
+        .querySelector(".video-error");
+
+
+    video.addEventListener("loadeddata", () => {
+
+        errorBox.hidden = true;
+
+    });
+
+
+    video.addEventListener("error", () => {
+
+        errorBox.hidden = false;
+
+        const sourceURL = video.currentSrc || video.src;
+
+        if (sourceURL && !errorBox.querySelector("a")) {
+
+            const link = document.createElement("a");
+
+            link.href = sourceURL;
+
+            link.textContent = "Open video file";
+
+            link.target = "_blank";
+
+            link.rel = "noopener";
+
+            errorBox.appendChild(link);
+
+        }
+
+    });
+
+
+    /* ONLY ONE VIDEO PLAYS AT A TIME */
+
+    video.addEventListener("play", () => {
+
+        videos.forEach(otherVideo => {
+
+            if (otherVideo !== video) {
+
+                otherVideo.pause();
+
+            }
+
+        });
+
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
