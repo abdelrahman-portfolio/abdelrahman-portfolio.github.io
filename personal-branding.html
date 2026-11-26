@@ -1558,7 +1558,9 @@ function createVideoCard(item,index) {
 
         trigger.disabled = false;
 
-        if(preview.duration > 0) {
+        /* Cards with their own poster keep it fixed - never seek */
+
+        if(!item.poster && preview.duration > 0) {
 
             const requestedPosterTime = Number.isFinite(item.posterTime)
                 ? item.posterTime
@@ -1699,6 +1701,37 @@ const modalTitle = document.getElementById("modalTitle");
 
 const videoModalClose = document.getElementById("videoModalClose");
 
+/* REMEMBER WHERE THE OPEN VIDEO WAS PAUSED */
+
+let currentModalIndex = -1;
+
+function saveModalPosition() {
+
+    if(currentModalIndex < 0) return;
+
+    const item = videos[currentModalIndex];
+
+    if(!item) return;
+
+    if(
+        modalVideo.readyState >= 1 &&
+        Number.isFinite(modalVideo.currentTime)
+    ) {
+        item.resumeTime = modalVideo.currentTime;
+    }
+
+}
+
+/* A VIDEO THAT PLAYED TO THE END STARTS OVER NEXT TIME */
+
+modalVideo.addEventListener("ended",() => {
+
+    if(currentModalIndex >= 0 && videos[currentModalIndex]) {
+        videos[currentModalIndex].resumeTime = 0;
+    }
+
+});
+
 /* STOP OTHER VIDEOS */
 
 function stopOtherVideos(activeVideo = null) {
@@ -1742,6 +1775,8 @@ function stopOtherVideos(activeVideo = null) {
 
         if(videoModal.classList.contains("open")) {
 
+            saveModalPosition();
+
             modalVideo.removeAttribute("src");
             modalVideo.removeAttribute("poster");
 
@@ -1784,6 +1819,8 @@ function openVideo(index,preview) {
 
     modalTitle.textContent = item.title;
 
+    currentModalIndex = index;
+
     modalVideo.pause();
     modalVideo.removeAttribute("src");
     modalVideo.load();
@@ -1801,7 +1838,9 @@ function openVideo(index,preview) {
             startFromBeginning
         );
 
-        modalVideo.currentTime = 0;
+        /* RESUME FROM WHERE IT WAS PAUSED */
+
+        modalVideo.currentTime = item.resumeTime || 0;
 
         modalVideo.play().catch(error => {
 
@@ -1823,6 +1862,8 @@ function openVideo(index,preview) {
 function closeVideo() {
 
     modalVideo.pause();
+
+    saveModalPosition();
 
     modalVideo.removeAttribute("src");
     modalVideo.removeAttribute("poster");
