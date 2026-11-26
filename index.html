@@ -9,7 +9,6 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preload" as="image" href="pic/pic 1.jpg" fetchpriority="high">
 
 <title>Abdelrahman Ahmed | Portfolio</title>
 
@@ -1940,10 +1939,6 @@ footer strong {
       <img
         id="profilePhoto"
         src="pic/pic 1.jpg"
-        width="420"
-        height="550"
-        fetchpriority="high"
-        decoding="async"
         alt="Abdelrahman Ahmed"
       >
 
@@ -2456,9 +2451,9 @@ const coverNames = {
 
 const imageExtensions = [
   ".png",
-  ".webp",
   ".jpg",
   ".jpeg",
+  ".webp",
   ".avif",
   ".jfif",
   ".bmp",
@@ -2475,8 +2470,6 @@ function loadPortfolioCover(container, names) {
   img.alt = container.getAttribute("aria-label") || "Portfolio cover";
 
   img.decoding = "async";
-  img.width = 1000;
-  img.height = 1000;
 
   let nameIndex = 0;
   let extensionIndex = 0;
@@ -2574,9 +2567,7 @@ function createBrandRow(trackId, start, end) {
 
     img.draggable = false;
 
-    img.decoding = "async";
-    img.width = 320;
-    img.height = 320;
+    img.loading = "eager";
 
     img.onerror = function() {
 
