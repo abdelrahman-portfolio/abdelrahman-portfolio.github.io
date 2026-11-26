@@ -2,8 +2,11 @@ import { readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
+sharp.concurrency(2);
+
 async function convert(inputPath, options) {
-  const outputPath = inputPath.replace(/\\.(png|jpe?g)$/i, ".webp");
+  const extension = path.extname(inputPath);
+  const outputPath = inputPath.slice(0, -extension.length) + ".webp";
 
   await sharp(inputPath, { failOn: "none" })
     .rotate()
@@ -28,31 +31,38 @@ async function convert(inputPath, options) {
 
   const saved = Math.max(0, 100 - (optimized.size / original.size) * 100);
   console.log(
-    `${inputPath} -> ${outputPath}: ${(original.size / 1024).toFixed(0)} KB -> ${(optimized.size / 1024).toFixed(0)} KB (${saved.toFixed(1)}% smaller)`
+    inputPath + " -> " + outputPath + ": " +
+    (original.size / 1024).toFixed(0) + " KB -> " +
+    (optimized.size / 1024).toFixed(0) + " KB (" +
+    saved.toFixed(1) + "% smaller)"
   );
 }
 
 const logoFiles = (await readdir("logos", { withFileTypes: true }))
-  .filter((entry) => entry.isFile() && /\\.png$/i.test(entry.name))
+  .filter((entry) => entry.isFile() && /\.png$/i.test(entry.name))
   .map((entry) => path.join("logos", entry.name));
 
 const coverFiles = (await readdir("pic/okay", { withFileTypes: true }))
-  .filter((entry) => entry.isFile() && /\\.(png|jpe?g)$/i.test(entry.name))
+  .filter((entry) => entry.isFile() && /\.(png|jpe?g)$/i.test(entry.name))
   .map((entry) => path.join("pic/okay", entry.name));
 
 const jobs = [
-  ...logoFiles.map((file) =>
-    convert(file, { width: 320, height: 320, quality: 90 })
-  ),
-  ...coverFiles.map((file) =>
-    convert(file, { width: 1000, height: 1000, quality: 86 })
-  ),
-  convert("pic/pic 1.jpg", {
-    width: 1100,
-    height: 1400,
-    quality: 88
-  })
+  ...logoFiles.map((file) => ({
+    file,
+    options: { width: 320, height: 320, quality: 90 }
+  })),
+  ...coverFiles.map((file) => ({
+    file,
+    options: { width: 1000, height: 1000, quality: 86 }
+  })),
+  {
+    file: "pic/pic 1.jpg",
+    options: { width: 1100, height: 1400, quality: 88 }
+  }
 ];
 
-await Promise.all(jobs);
-console.log(`Optimized ${jobs.length} homepage images.`);
+for (const job of jobs) {
+  await convert(job.file, job.options);
+}
+
+console.log("Optimized " + jobs.length + " homepage images.");
