@@ -329,6 +329,7 @@ header {
     margin:auto;
     background:#000;
     border:1px solid #333;
+    aspect-ratio:9/16;
 }
 
 .video-frame video {
@@ -1052,10 +1053,9 @@ footer strong {
 
         <div class="video-frame">
 
-            <video controls playsinline preload="metadata"
-                   poster="pic/سامح/2.jpg">
+            <video controls playsinline preload="metadata">
 
-                <source src="reels/mcb.mp4" type="video/mp4">
+                <source src="reels/mcb.mp4#t=0.5" type="video/mp4">
 
                 Your browser does not support HTML video.
 
@@ -1315,5 +1315,6 @@ document.querySelectorAll('video').forEach(video => {
 
 </body>
 </html>
+
 
 
