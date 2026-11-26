@@ -9,6 +9,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" as="image" href="pic/pic 1.webp" fetchpriority="high">
 
 <title>Abdelrahman Ahmed | Portfolio</title>
 
@@ -1938,7 +1939,11 @@ footer strong {
 
       <img
         id="profilePhoto"
-        src="pic/pic 1.jpg"
+        src="pic/pic 1.webp"
+        width="420"
+        height="550"
+        fetchpriority="high"
+        decoding="async"
         alt="Abdelrahman Ahmed"
       >
 
@@ -2416,6 +2421,7 @@ if (menuToggle && mobileNav) {
 const profilePhoto = document.getElementById("profilePhoto");
 
 const profilePaths = [
+  "pic/pic 1.webp",
   "pic/pic 1.jpg",
   "pic/pic 1.jpeg",
   "pic/pic 1.png",
@@ -2450,10 +2456,10 @@ const coverNames = {
 };
 
 const imageExtensions = [
+  ".webp",
   ".png",
   ".jpg",
   ".jpeg",
-  ".webp",
   ".avif",
   ".jfif",
   ".bmp",
@@ -2470,6 +2476,9 @@ function loadPortfolioCover(container, names) {
   img.alt = container.getAttribute("aria-label") || "Portfolio cover";
 
   img.decoding = "async";
+  img.loading = "lazy";
+  img.width = 1000;
+  img.height = 1000;
 
   let nameIndex = 0;
   let extensionIndex = 0;
@@ -2559,7 +2568,7 @@ function createBrandRow(trackId, start, end) {
 
     const img = document.createElement("img");
 
-    img.src = `logos/${i}.png`;
+    img.src = `logos/${i}.webp`;
 
     img.alt = `Brand ${i}`;
 
@@ -2567,7 +2576,10 @@ function createBrandRow(trackId, start, end) {
 
     img.draggable = false;
 
-    img.loading = "eager";
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.width = 320;
+    img.height = 320;
 
     img.onerror = function() {
 
