@@ -1,0 +1,62 @@
+name: Optimize homepage images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/optimize-homepage-images.yml"
+      - "scripts/optimize-homepage-images.mjs"
+      - "logos/*.png"
+      - "pic/okay/*.png"
+      - "pic/okay/*.jpg"
+      - "pic/okay/*.jpeg"
+      - "pic/pic 1.jpg"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-homepage-images
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out image folders
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /scripts/
+            /logos/
+            /pic/okay/
+            /pic/pic 1.jpg
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install image optimizer
+        run: npm install --no-save --no-package-lock sharp
+
+      - name: Generate optimized WebP images
+        run: node scripts/optimize-homepage-images.mjs
+
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- 'logos/*.webp' 'pic/okay/*.webp' 'pic/pic 1.webp'
+          if git diff --cached --quiet; then
+            echo "No optimized image changes to commit."
+          else
+            git commit -m "Optimize homepage images for faster loading"
+            git push origin HEAD:main
+          fi
