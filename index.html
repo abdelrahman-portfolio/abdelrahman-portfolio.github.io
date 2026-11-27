@@ -12,8 +12,14 @@
 
 <title>Abdelrahman Ahmed | Portfolio</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="image" href="pic/ana%20so8ir.jpg" media="(max-width: 750px)">
+<link rel="preload" as="image" href="pic/ana%20kber.jpg" media="(min-width: 751px)">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
 <style>
 :root {
@@ -1809,8 +1815,8 @@ footer strong {
 
 <header>
 
-  <a href="portfolio.html" class="logo">
-    <img src="pic/af.png" alt="AF Logo">
+  <a href="index.html" class="logo">
+    <img src="pic/af.png" alt="AF Logo" decoding="async">
   </a>
 
   <button
@@ -1829,7 +1835,7 @@ footer strong {
 
   <nav id="mobileNav">
 
-    <a href="portfolio.html" class="active" aria-current="page">Home</a>
+    <a href="index.html" class="active" aria-current="page">Home</a>
     <a href="posts.html">Posts</a>
     <a href="videos.html">Reels</a>
     <a href="campaigns.html">Campaigns</a>
@@ -1867,12 +1873,15 @@ footer strong {
     </div>
 
     <p class="hero-description">
-
-      I combine content strategy, creative thinking, and performance marketing insights to build campaigns that connect with audiences and support business objectives.
+      Content Creator &amp; Strategist with 3 years of experience across agency and freelance work, having worked with 35+ brands across the Egyptian, Gulf, and Palestinian markets.
 
       <br>
 
-      My work covers market research, audience analysis, brand positioning, content planning, campaign concepts, copywriting, scriptwriting, and creative direction.
+      I specialize in writing scripts, ad copy, and social media content in both Arabic and English, backed by performance marketing insights.
+
+      <br>
+
+      I turn brand goals into research-backed content strategies, creative concepts, and ready-to-shoot scripts, collaborating closely with designers, videographers, and editors from the initial brief to final publication.
 
     </p>
 
@@ -1936,11 +1945,16 @@ footer strong {
 
     <div class="hero-image">
 
-      <img
+      <picture>
+        <source media="(max-width: 750px)" srcset="pic/ana%20so8ir.jpg">
+        <img
         id="profilePhoto"
-        src="pic/pic 1.jpg"
+        src="pic/ana%20kber.jpg"
         alt="Abdelrahman Ahmed"
+        fetchpriority="high"
+        decoding="async"
       >
+      </picture>
 
     </div>
 
@@ -2001,9 +2015,6 @@ footer strong {
 
 <section class="content work-section" id="work">
 
-  <div class="section-label">
-    02 / SELECTED WORK
-  </div>
 
   <div class="work-intro">
 
@@ -2012,10 +2023,6 @@ footer strong {
       <span>creative work.</span>
     </h2>
 
-    <p>
-      A collection of creative projects, content strategies,
-      campaigns, and storytelling experiences.
-    </p>
 
   </div>
 
@@ -2108,7 +2115,7 @@ footer strong {
   <div class="industries-intro">
 
     <div class="section-label">
-      03 / INDUSTRIES I'VE WORKED WITH
+      INDUSTRIES I'VE WORKED WITH
     </div>
 
     <h2>
