@@ -1119,6 +1119,86 @@ footer strong {
     }
 }
 
+
+/* ===== UNIFIED HEADER + TYPOGRAPHY (matches index.html) ===== */
+body, button, input, textarea, select { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; font-weight: 700; }
+.page-hero h1, .hero h1 {
+  font-size: clamp(58px, 7vw, 95px);
+  line-height: 1.05;
+  letter-spacing: -5px;
+  font-weight: 700;
+}
+header {
+  height: auto;
+  min-height: 90px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  border-bottom: 1px solid #292929;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+header .logo { width: 85px; height: 65px; display: flex; align-items: center; flex-shrink: 0; }
+header .logo img { width: 100%; height: 100%; object-fit: contain; }
+header nav { display: flex; gap: 30px; }
+header nav a { color: #aaa; font-size: 13px; font-weight: 400; transition: .3s; }
+header nav a:hover, header nav a.active { color: #FFD21F; }
+header .menu-toggle { display: none; }
+header .contact-link {
+  color: #FFD21F !important;
+  border: 1px solid #FFD21F;
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .3s;
+}
+header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
+@media (max-width: 750px) {
+  .page-hero h1, .hero h1 { font-size: clamp(42px, 12vw, 54px); letter-spacing: -2px; }
+  header {
+    height: 68px;
+    min-height: 68px;
+    padding: 8px 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    overflow: visible;
+  }
+  header .logo { width: 48px; height: 45px; flex-shrink: 0; }
+  header .contact-link { display: none; }
+  header .menu-toggle {
+    display: flex; width: 40px; height: 40px; margin-left: auto; padding: 8px;
+    border: 0; background: transparent; cursor: pointer;
+    align-items: center; justify-content: center; flex-direction: column; gap: 5px; flex-shrink: 0;
+  }
+  header .menu-toggle span { display: block; width: 22px; height: 2px; border-radius: 2px; background: #fff; transition: transform .25s ease, opacity .25s ease; }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  header nav {
+    display: none; position: absolute; top: calc(100% + 8px); left: 5%; right: 5%; width: auto;
+    margin: 0; padding: 8px; flex-direction: column; align-items: stretch; justify-content: flex-start;
+    gap: 0; overflow: visible; white-space: normal; background: #121212; border: 1px solid #303030;
+    border-radius: 15px; box-shadow: 0 16px 35px rgba(0,0,0,.48); z-index: 130;
+  }
+  header nav.open { display: flex; }
+  header nav a {
+    display: block; width: 100%; flex: none; padding: 14px; border: 0; border-bottom: 1px solid #292929;
+    border-radius: 0; background: transparent; color: #b8b8b8; font-size: 13px; font-weight: 600; white-space: normal;
+  }
+  header nav a:last-child { border-bottom: 0; }
+  header nav a.active { color: #FFD21F; background: rgba(255,210,31,.07); border-radius: 8px; }
+  header nav a:hover { color: #FFD21F; }
+}
 </style>
 </head>
 
@@ -1128,33 +1208,37 @@ footer strong {
 
 <header>
 
-    <a href="index.html" class="logo">
-        <img src="pic/af.png" alt="AF Logo">
-    </a>
+  <a href="index.html" class="logo">
+    <img src="pic/af.png" alt="AF Logo" decoding="async">
+  </a>
 
-    <nav id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="posts.html">Posts</a>
-        <a href="videos.html">Reels</a>
-        <a href="campaigns.html">Campaigns</a>
-        <a href="personal-branding.html" class="active">My Personal Branding</a>
-    </nav>
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-controls="mobileNav"
+    aria-expanded="false">
 
-    <a href="index.html#contact" class="contact-link">
-        LET'S TALK ↗
-    </a>
+    <span></span>
+    <span></span>
+    <span></span>
 
-    <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="mobileNav"
-        aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+  </button>
+
+  <nav id="mobileNav">
+
+    <a href="index.html">Home</a>
+    <a href="posts.html">Posts</a>
+    <a href="videos.html">Reels</a>
+    <a href="campaigns.html">Campaigns</a>
+    <a href="personal-branding.html" class="active" aria-current="page">My Personal Branding</a>
+
+  </nav>
+
+  <a href="index.html#contact" class="contact-link">
+    LET'S TALK
+  </a>
 
 </header>
 
@@ -1165,10 +1249,6 @@ footer strong {
 <section class="page-hero">
 
     <div class="hero-copy">
-
-        <div class="eyebrow">
-            04 / MY PERSONAL BRANDING
-        </div>
 
         <h1 class="personal-hero-title">
             <span class="title-line">I Go</span>

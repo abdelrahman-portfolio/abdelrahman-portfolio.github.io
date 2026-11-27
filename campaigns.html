@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -37,7 +37,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
 }
 
@@ -870,6 +870,86 @@ footer strong { color: white; }
   }
 }
 
+
+/* ===== UNIFIED HEADER + TYPOGRAPHY (matches index.html) ===== */
+body, button, input, textarea, select { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; font-weight: 700; }
+.page-hero h1, .hero h1 {
+  font-size: clamp(58px, 7vw, 95px);
+  line-height: 1.05;
+  letter-spacing: -5px;
+  font-weight: 700;
+}
+header {
+  height: auto;
+  min-height: 90px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  border-bottom: 1px solid #292929;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+header .logo { width: 85px; height: 65px; display: flex; align-items: center; flex-shrink: 0; }
+header .logo img { width: 100%; height: 100%; object-fit: contain; }
+header nav { display: flex; gap: 30px; }
+header nav a { color: #aaa; font-size: 13px; font-weight: 400; transition: .3s; }
+header nav a:hover, header nav a.active { color: #FFD21F; }
+header .menu-toggle { display: none; }
+header .contact-link {
+  color: #FFD21F !important;
+  border: 1px solid #FFD21F;
+  padding: 14px 20px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .3s;
+}
+header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
+@media (max-width: 750px) {
+  .page-hero h1, .hero h1 { font-size: clamp(42px, 12vw, 54px); letter-spacing: -2px; }
+  header {
+    height: 68px;
+    min-height: 68px;
+    padding: 8px 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    overflow: visible;
+  }
+  header .logo { width: 48px; height: 45px; flex-shrink: 0; }
+  header .contact-link { display: none; }
+  header .menu-toggle {
+    display: flex; width: 40px; height: 40px; margin-left: auto; padding: 8px;
+    border: 0; background: transparent; cursor: pointer;
+    align-items: center; justify-content: center; flex-direction: column; gap: 5px; flex-shrink: 0;
+  }
+  header .menu-toggle span { display: block; width: 22px; height: 2px; border-radius: 2px; background: #fff; transition: transform .25s ease, opacity .25s ease; }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  header .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  header nav {
+    display: none; position: absolute; top: calc(100% + 8px); left: 5%; right: 5%; width: auto;
+    margin: 0; padding: 8px; flex-direction: column; align-items: stretch; justify-content: flex-start;
+    gap: 0; overflow: visible; white-space: normal; background: #121212; border: 1px solid #303030;
+    border-radius: 15px; box-shadow: 0 16px 35px rgba(0,0,0,.48); z-index: 130;
+  }
+  header nav.open { display: flex; }
+  header nav a {
+    display: block; width: 100%; flex: none; padding: 14px; border: 0; border-bottom: 1px solid #292929;
+    border-radius: 0; background: transparent; color: #b8b8b8; font-size: 13px; font-weight: 600; white-space: normal;
+  }
+  header nav a:last-child { border-bottom: 0; }
+  header nav a.active { color: #FFD21F; background: rgba(255,210,31,.07); border-radius: 8px; }
+  header nav a:hover { color: #FFD21F; }
+}
 </style>
 </head>
 
@@ -877,32 +957,36 @@ footer strong { color: white; }
 
 <header>
 
-  <a href="index.html" class="brand">
-    <img src="pic/af.png" alt="AF Logo">
+  <a href="index.html" class="logo">
+    <img src="pic/af.png" alt="AF Logo" decoding="async">
   </a>
 
-  <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-controls="mobileNav"
+    aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+  <nav id="mobileNav">
+
     <a href="index.html">Home</a>
     <a href="posts.html">Posts</a>
     <a href="videos.html">Reels</a>
-    <a href="campaigns.html" class="active">Campaigns</a>
+    <a href="campaigns.html" class="active" aria-current="page">Campaigns</a>
     <a href="personal-branding.html">My Personal Branding</a>
+
   </nav>
 
-  <button
-    class="mobile-menu-toggle"
-    type="button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="site-navigation"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <a href="index.html#contact" class="contact-btn">
-    LET'S TALK ↗
+  <a href="index.html#contact" class="contact-link">
+    LET'S TALK
   </a>
 
 </header>
@@ -916,7 +1000,6 @@ footer strong { color: white; }
 <section class="page-intro">
   <div class="container">
 
-    <div class="eyebrow">01 / SELECTED CAMPAIGNS</div>
 
     <h1>
       Creative<br>
@@ -1264,6 +1347,32 @@ footer strong { color: white; }
 })();
 </script>
 
+<script>
+/* MOBILE NAVIGATION (same as index) */
+(function () {
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+  function closeMobileMenu() {
+    if (!menuToggle || !mobileNav) return;
+    mobileNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  }
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
+    mobileNav.querySelectorAll("a").forEach(l => l.addEventListener("click", closeMobileMenu));
+    document.addEventListener("click", e => {
+      if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) closeMobileMenu();
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobileMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 750) closeMobileMenu(); });
+  }
+})();
+</script>
 </body>
 </html>
 

@@ -1806,6 +1806,29 @@ footer strong {
 
 }
 
+
+/* MOBILE PHOTO: NO FRAME */
+@media (max-width: 750px) {
+  .hero-image-frame {
+    padding: 0 !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  .hero-image-frame::before,
+  .hero-image-frame::after {
+    display: none !important;
+  }
+  .hero-image {
+    border: 0 !important;
+    background: none !important;
+  }
+  .hero-image-frame:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
 </style>
 </head>
 
