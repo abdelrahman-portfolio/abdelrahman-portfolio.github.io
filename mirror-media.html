@@ -1040,6 +1040,31 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
   header nav a.active { color: #FFD21F; background: rgba(255,210,31,.07); border-radius: 8px; }
   header nav a:hover { color: #FFD21F; }
 }
+
+/* ===== UNIFIED CAMPAIGN PAGE LAYOUT ===== */
+main .hero h1, main .hero h1.u-title{font-family:'Manrope',sans-serif !important;font-weight:800 !important;font-size:clamp(46px,7vw,96px) !important;line-height:1 !important;letter-spacing:-0.03em !important;margin:0 0 10px !important;text-transform:none !important}
+main .hero h1 .yellow, main .hero h1 span{color:#FFD21F}
+main .hero .hero-grid{display:block !important}
+main .hero{min-height:0 !important;padding-top:90px !important;padding-bottom:30px !important}
+main .intro{padding:30px 0 70px !important}
+main .intro .intro-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:28px !important}
+main .intro .intro-block{background:#141414 !important;border:1px solid #292929 !important;border-radius:16px !important;padding:34px !important;min-width:0}
+main .intro .intro-block .eyebrow{color:#FFD21F !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.2em !important;margin-bottom:14px !important;display:block}
+main .intro .intro-block h2{font-family:'Manrope',sans-serif !important;font-size:28px !important;font-weight:700 !important;line-height:1.2 !important;margin:0 0 16px !important;color:#fff}
+main .intro .intro-block p{font-size:15px !important;line-height:1.8 !important;color:#aaa !important;margin:0 0 20px !important;font-weight:400 !important}
+main .intro .role-list, main .intro .role-tags{display:flex !important;flex-wrap:wrap !important;gap:10px !important}
+main .intro .role-list span, main .intro .role-tags span{border:1px solid #333 !important;border-radius:999px !important;padding:8px 14px !important;font-size:12px !important;color:#ddd !important;background:transparent !important}
+@media (max-width:750px){
+ main .hero h1, main .hero h1.u-title{font-size:clamp(38px,12vw,56px) !important}
+ main .hero{padding-top:50px !important;padding-bottom:10px !important}
+ main .intro .intro-grid{grid-template-columns:1fr !important}
+ main .intro .intro-block{padding:24px !important}
+ main .intro .intro-block h2{font-size:23px !important}
+}
+main .hero .container, main .intro .container{width:100% !important;max-width:1200px !important;margin:0 auto !important;padding-left:7% !important;padding-right:7% !important;box-sizing:border-box !important}
+main .hero .hero-content{text-align:left !important;align-items:flex-start !important;max-width:none !important}
+main .hero h1{text-align:left !important}
+@media (max-width:750px){main .hero .container, main .intro .container{padding-left:20px !important;padding-right:20px !important}}
 </style>
 </head>
 
@@ -1106,47 +1131,10 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 
             <div class="hero-content">
 
-                <div class="eyebrow">
-                    03 / DOCTOR-FOCUSED VIDEO CAMPAIGN
-                </div>
-
                 <h1>
                     Mirror<br>
                     <span class="yellow">Media</span>
                 </h1>
-
-                <p class="hero-description">
-                    A video content campaign targeting doctors,
-                    built around short-form content designed
-                    to connect with the medical audience.
-                </p>
-
-
-                <!-- MOBILE ACTIONS -->
-
-                <div class="hero-actions">
-
-                    <a href="#reels" class="primary-btn">
-                        WATCH THE REELS ↘
-                    </a>
-
-                    <a href="#my-role" class="text-btn">
-                        MY ROLE ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- MIRROR MEDIA LOGO -->
-
-            <div class="logo-wrap">
-
-                <img
-                    src="logos/37.png"
-                    alt="Mirror Media Logo"
-                >
 
             </div>
 
@@ -1242,35 +1230,12 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 
 
         <div class="reels-heading">
-
-            <div class="section-heading">
-
-                <div class="eyebrow">
-                    02 / CAMPAIGN EXECUTION
-                </div>
-
-                <h2>
-                    Three Reels.<br>
-                    <span class="yellow">One Campaign.</span>
-                </h2>
-
-                <p>
-                    Three short-form videos created for Mirror Media,
-                    designed to connect with the medical audience
-                    through focused video storytelling.
-                </p>
-
-            </div>
-
-            <div class="reel-count">
-                03 REELS / 01 CAMPAIGN
-            </div>
-
-        </div>
-
-
-
-        <!-- REELS GRID -->
+<div class="section-heading">
+<h2>
+    Final <span class="yellow">Delivery</span>
+</h2>
+</div>
+</div>
 
         <div class="reels-grid">
 

@@ -1162,6 +1162,26 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
   header nav a.active { color: #FFD21F; background: rgba(255,210,31,.07); border-radius: 8px; }
   header nav a:hover { color: #FFD21F; }
 }
+/* ===== UNIFIED CAMPAIGN PAGE LAYOUT ===== */
+main .hero h1, main .hero h1.u-title{font-family:'Manrope',sans-serif !important;font-weight:800 !important;font-size:clamp(46px,7vw,96px) !important;line-height:1 !important;letter-spacing:-0.03em !important;margin:0 0 10px !important;text-transform:none !important}
+main .hero h1 .yellow, main .hero h1 span{color:#FFD21F}
+main .intro{padding:30px 0 70px !important}
+main .intro .intro-grid{display:grid !important;grid-template-columns:1fr 1fr !important;gap:28px !important}
+main .intro .intro-block{background:#141414 !important;border:1px solid #292929 !important;border-radius:16px !important;padding:34px !important;min-width:0}
+main .intro .intro-block .eyebrow{color:#FFD21F !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.2em !important;margin-bottom:14px !important;display:block}
+main .intro .intro-block h2{font-family:'Manrope',sans-serif !important;font-size:28px !important;font-weight:700 !important;line-height:1.2 !important;margin:0 0 16px !important;color:#fff}
+main .intro .intro-block p{font-size:15px !important;line-height:1.8 !important;color:#aaa !important;margin:0 0 20px !important;font-weight:400 !important}
+main .intro .role-list, main .intro .role-tags{display:flex !important;flex-wrap:wrap !important;gap:10px !important}
+main .intro .role-list span, main .intro .role-tags span{border:1px solid #333 !important;border-radius:999px !important;padding:8px 14px !important;font-size:12px !important;color:#ddd !important;background:transparent !important}
+@media (max-width:750px){
+ main .hero h1, main .hero h1.u-title{font-size:clamp(38px,12vw,56px) !important}
+ main .intro .intro-grid{grid-template-columns:1fr !important}
+ main .intro .intro-block{padding:24px !important}
+ main .intro .intro-block h2{font-size:23px !important}
+}
+main .intro .container{width:100% !important;max-width:1200px !important;margin:0 auto !important;padding-left:7% !important;padding-right:7% !important;box-sizing:border-box !important}
+main .hero h1{text-align:left !important}
+@media (max-width:750px){main .intro .container{width:100% !important;max-width:1200px !important;margin:0 auto !important;padding-left:7% !important;padding-right:7% !important;box-sizing:border-box !important}}
 </style>
 </head>
 
@@ -1229,58 +1249,10 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 
             <div class="hero-content">
 
-                <div class="eyebrow">
-                    CAMPAIGN 04 / PRODUCT LAUNCH
-                </div>
-
                 <h1>
                     TRADE HOUSE<br>
                     <span class="yellow">× SKYWORTH</span>
                 </h1>
-
-                <p class="hero-description">
-                    A product launch campaign introducing
-                    SKYWORTH's new power bank and charger range
-                    for Trade House.
-                </p>
-
-
-                <!-- CAMPAIGN DETAILS -->
-
-                <div class="hero-details">
-
-                    <div class="detail">
-
-                        <strong>06</strong>
-
-                        <span>SHORT-FORM REELS</span>
-
-                    </div>
-
-                    <div class="detail">
-
-                        <strong>02</strong>
-
-                        <span>PRODUCT CATEGORIES</span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MOBILE ACTIONS -->
-
-                <div class="hero-actions">
-
-                    <a href="#power-banks" class="primary-btn">
-                        EXPLORE POWER BANK REELS ↘
-                    </a>
-
-                    <a href="#chargers" class="text-btn">
-                        EXPLORE CHARGER REELS ↗
-                    </a>
-
-                </div>
 
             </div>
 
@@ -1316,6 +1288,29 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 
 
 
+<section class="intro" id="my-role">
+<div class="container">
+<div class="intro-grid">
+<div class="intro-block">
+<div class="eyebrow">THE CAMPAIGN</div>
+<h2>Launching SKYWORTH</h2>
+<p>
+A product launch campaign introducing SKYWORTH's new power bank and charger range for Trade House, told through six short-form reels.
+</p>
+
+</div>
+<div class="intro-block">
+<div class="eyebrow">MY ROLE</div>
+<h2>From Script to Screen</h2>
+<p>
+I wrote six scripts built around real problems people face, such as not knowing that power banks can't be carried on a flight, and showed how SKYWORTH solves them. I prepared and supervised the shoot, then worked closely with the video editor to shape the final look of each video.
+</p>
+<div class="role-list"><span>Scriptwriting</span><span>Problem-Based Storytelling</span><span>Shoot Supervision</span><span>Editing Collaboration</span></div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- =====================================
      CAMPAIGN CONTENT
 ===================================== -->
@@ -1324,14 +1319,9 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 
     <div class="container">
 
-        <div class="section-label">
-            CAMPAIGN CONTENT
-        </div>
-
         <h2>
-            New Products
-            <span class="yellow">New Possibilities</span>
-        </h2>
+    Final <span class="yellow">Delivery</span>
+</h2>
 
     </div>
 
