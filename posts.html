@@ -1090,7 +1090,13 @@ async function setImageSource(img, basePath) {
         delete img.dataset.objectUrl;
     }
 
-    for (const extension of IMAGE_EXTENSIONS) {
+    const givenMatch = basePath.match(/\.(jpg|jpeg|png|webp|avif|jfif|heic|heif)$/i);
+    const givenExt = givenMatch ? givenMatch[0].toLowerCase() : null;
+    const extensionList = givenExt
+        ? [givenExt].concat(IMAGE_EXTENSIONS.filter(e => e !== givenExt))
+        : IMAGE_EXTENSIONS;
+
+    for (const extension of extensionList) {
         const filePath = cleanPath + extension;
 
         try {
@@ -1138,49 +1144,49 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/carbless/1",
+            image:"pic/carbless/1.jpg",
             category:"SEASONAL FOOD CONTENT",
             title:"Too Cold? Soup's Got You",
             alt:"Carbless winter soup campaign"
         },
         {
-            image:"pic/carbless/2",
+            image:"pic/carbless/2.jpg",
             category:"EDUCATIONAL CONTENT",
             title:"Not Every Keto Is Clean Keto",
             alt:"Carbless educational post about clean keto"
         },
         {
-            image:"pic/carbless/3",
+            image:"pic/carbless/3.jpg",
             category:"PRODUCT SPOTLIGHT",
             title:"It's a Cheesecake. And Yes, It's Carbless!",
             alt:"Carbless cheesecake product visual"
         },
         {
-            image:"pic/carbless/6",
+            image:"pic/carbless/6.jpg",
             category:"INTERACTIVE FOOD CONTENT",
             title:"Which One Is Keto-Friendly?",
             alt:"Carbless interactive keto food comparison"
         },
         {
-            image:"pic/carbless/8",
+            image:"pic/carbless/8.jpg",
             category:"CUSTOMER EXPERIENCE",
             title:"Unbox Your First Carbless Experience",
             alt:"First Carbless order being unpacked"
         },
         {
-            image:"pic/carbless/9",
+            image:"pic/carbless/9.jpg",
             category:"SMART FOOD SWAPS",
             title:"Pasta Cravings? Meet Your Keto Swap",
             alt:"Carbless keto pasta alternative"
         },
         {
-            image:"pic/carbless/12",
+            image:"pic/carbless/12.jpg",
             category:"LIFESTYLE FOOD CONTENT",
             title:"Cold Outside, Cozy Inside",
             alt:"Cozy winter Carbless meal"
         },
         {
-            image:"pic/carbless/14",
+            image:"pic/carbless/14.jpg",
             category:"PRODUCT & LIFESTYLE",
             title:"Cravings Without Compromise",
             alt:"Customer enjoying a Carbless sandwich"
@@ -1196,49 +1202,49 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/sameh/6",
+            image:"pic/sameh/6.jpg",
             category:"PRODUCT EDUCATION",
             title:"Choosing the Right Circuit Breaker",
             alt:"Electrical circuit breakers"
         },
         {
-            image:"pic/sameh/8",
+            image:"pic/sameh/8.jpg",
             category:"PRODUCT RANGE",
             title:"Electrical Supplies in One Place",
             alt:"Electrical supplies and products"
         },
         {
-            image:"pic/sameh/9",
+            image:"pic/sameh/9.jpg",
             category:"PRODUCT EDUCATION",
             title:"What Makes a Quality Electrical Cable?",
             alt:"Electrical cable close-up"
         },
         {
-            image:"pic/sameh/10",
+            image:"pic/sameh/10.jpg",
             category:"VALUE-LED CONTENT",
             title:"The Real Cost of Choosing Cheap",
             alt:"Electrical product value visual"
         },
         {
-            image:"pic/sameh/13",
+            image:"pic/sameh/13.jpg",
             category:"B2B BRAND TRUST",
             title:"A Partner Who Understands Your Work",
             alt:"Electrical professionals reviewing project drawings"
         },
         {
-            image:"pic/sameh/16",
+            image:"pic/sameh/16.jpg",
             category:"B2C CUSTOMER JOURNEY",
             title:"Everything You Need for Your Home's Electrical Setup",
             alt:"Home electrical distribution board"
         },
         {
-            image:"pic/sameh/17",
+            image:"pic/sameh/17.jpg",
             category:"ELECTRICAL SAFETY",
             title:"Electrical Leakage Is a Serious Risk",
             alt:"Electrical safety equipment"
         },
         {
-            image:"pic/sameh/18",
+            image:"pic/sameh/18.jpg",
             category:"TECHNICAL AWARENESS",
             title:"The Risks of Improper Equipment Operation",
             alt:"Industrial electrical equipment"
@@ -1254,49 +1260,49 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/mr puffz/1",
+            image:"pic/mr puffz/1.jpg",
             category:"PRODUCT PERSONALISATION",
             title:"Your Boba, Your Flavor",
             alt:"Mr Puffz boba flavors presented as three choices"
         },
         {
-            image:"pic/mr puffz/2",
+            image:"pic/mr puffz/2.jpg",
             category:"PRODUCT RANGE",
             title:"Explore the Flavor Universe",
             alt:"Mr Puffz colorful boba drinks"
         },
         {
-            image:"pic/mr puffz/3",
+            image:"pic/mr puffz/3.jpg",
             category:"BRAND CHARACTER",
             title:"A Little Chef, A Lot of Sweetness",
             alt:"Mr Puffz character surrounded by cream puffs"
         },
         {
-            image:"pic/mr puffz/10",
+            image:"pic/mr puffz/10.jpg",
             category:"INTERACTIVE CONTENT",
             title:"Can You Solve It?",
             alt:"Mr Puffz dessert equation puzzle"
         },
         {
-            image:"pic/mr puffz/11",
+            image:"pic/mr puffz/11.jpg",
             category:"PRODUCT COLLECTION",
             title:"Discover Our Chocolate World",
             alt:"Mr Puffz chocolate dessert collection"
         },
         {
-            image:"pic/mr puffz/12",
+            image:"pic/mr puffz/12.jpg",
             category:"PRODUCT SPOTLIGHT",
             title:"Dopamine Mochi Set",
             alt:"Mr Puffz dopamine mochi gift set"
         },
         {
-            image:"pic/mr puffz/13",
+            image:"pic/mr puffz/13.jpg",
             category:"CULTURAL STORYTELLING",
             title:"A Piece of Japanese Culture",
             alt:"Mr Puffz Japanese-inspired mochi assortment"
         },
         {
-            image:"pic/mr puffz/14",
+            image:"pic/mr puffz/14.jpg",
             category:"SEASONAL PRODUCT CONTENT",
             title:"Missed That Watermelon Taste?",
             alt:"Watermelon and mango mochi desserts"
@@ -1312,25 +1318,25 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/chapati & karak/1",
+            image:"pic/chapati & karak/1.jpg",
             category:"PRODUCT SPOTLIGHT",
             title:"A Fresh Summer Pour",
             alt:"Chapati and Karak coconut drink"
         },
         {
-            image:"pic/chapati & karak/2",
+            image:"pic/chapati & karak/2.jpg",
             category:"BRAND EXPERIENCE",
             title:"Karak Worth Sharing",
             alt:"Chapati and Karak branded cups"
         },
         {
-            image:"pic/chapati & karak/11",
+            image:"pic/chapati & karak/11.jpg",
             category:"DELIVERY & CONVENIENCE",
             title:"Your Order, Just a Tap Away",
             alt:"Chapati and Karak delivery order"
         },
         {
-            image:"pic/chapati & karak/14",
+            image:"pic/chapati & karak/14.jpg",
             category:"ON-THE-GO LIFESTYLE",
             title:"Chapati on the Go",
             alt:"Chapati wraps enjoyed on the go"
@@ -1346,25 +1352,25 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/bahaa/bahaa1",
+            image:"pic/bahaa/bahaa1.png",
             category:"SPACE PLANNING",
             title:"Every Space, Planned Right",
             alt:"Interior design and living room"
         },
         {
-            image:"pic/bahaa/bahaa2",
+            image:"pic/bahaa/bahaa2.png",
             category:"INTERIOR DESIGN EXPERIENCE",
             title:"Every Detail Makes a Difference",
             alt:"Modern living room and wooden door"
         },
         {
-            image:"pic/bahaa/bahaa3",
+            image:"pic/bahaa/bahaa3.png",
             category:"BRAND POSITIONING",
             title:"Building Trust Before Walls",
             alt:"Construction professional placing a concrete block"
         },
         {
-            image:"pic/bahaa/bahaa4",
+            image:"pic/bahaa/bahaa4.png",
             category:"BRAND AWARENESS",
             title:"Complete Architectural & Interior Solutions",
             alt:"Architectural model and interior design elements"
@@ -1380,25 +1386,25 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/posts/alham/1",
+            image:"pic/posts/alham/1.png",
             category:"WELLNESS & SUPPLEMENT PROMOTION",
             title:"Wellness Essentials, Special Offers",
             alt:"Elham Pharm wellness supplements and health products"
         },
         {
-            image:"pic/posts/alham/2",
+            image:"pic/posts/alham/2.png",
             category:"SKINCARE PRODUCT SPOTLIGHT",
             title:"Glow Isn't Just a Filter",
             alt:"Dr Gold Golden Glow skincare serum presented by a model"
         },
         {
-            image:"pic/posts/alham/3",
+            image:"pic/posts/alham/3.png",
             category:"FRAGRANCE CAMPAIGN",
             title:"A Fragrance That Leaves an Impression",
             alt:"Luxury perfume bottles styled with red ribbons"
         },
         {
-            image:"pic/posts/alham/4",
+            image:"pic/posts/alham/4.png",
             category:"HAIR CARE PRODUCT SPOTLIGHT",
             title:"Smooth Hair, Less Frizz",
             alt:"ALMIRA leave-in hair mask being sprayed onto long hair"
@@ -1414,25 +1420,25 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/life gym/life01",
+            image:"pic/life gym/life01.jpg",
             category:"FITNESS MOTIVATION",
             title:"Don't Let the Scale Define Your Progress",
             alt:"Man looking at a weighing scale in a gym"
         },
         {
-            image:"pic/life gym/life02",
+            image:"pic/life gym/life02.jpg",
             category:"GYM PROMOTION",
             title:"Are You Ready to Transform?",
             alt:"Athlete training with a cable machine"
         },
         {
-            image:"pic/life gym/life03",
+            image:"pic/life gym/life03.jpg",
             category:"MOTIVATIONAL CONTENT",
             title:"No Excuses. Just Start.",
             alt:"Gym member working out"
         },
         {
-            image:"pic/life gym/life04",
+            image:"pic/life gym/life04.jpg",
             category:"FITNESS LIFESTYLE",
             title:"Your Workout Companion",
             alt:"Gym bag with workout essentials"
@@ -1448,31 +1454,31 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/al shrif/elshrif01",
+            image:"pic/al shrif/elshrif01.jpg",
             category:"UMRAH TRAVEL TIPS",
             title:"Your Umrah Trip Is Coming Up?",
             alt:"Essential items to prepare before Umrah"
         },
         {
-            image:"pic/al shrif/elshrif02",
+            image:"pic/al shrif/elshrif02.jpg",
             category:"TRAVEL ESSENTIALS",
             title:"Personal Essentials for the Haram",
             alt:"Personal items for entering the Haram"
         },
         {
-            image:"pic/al shrif/elshrif03",
+            image:"pic/al shrif/elshrif03.jpg",
             category:"TRAVEL PREPARATION",
             title:"Don't Forget Your Daily Essentials",
             alt:"Daily personal medicines and travel essentials"
         },
         {
-            image:"pic/al shrif/elshrif04",
+            image:"pic/al shrif/elshrif04.jpg",
             category:"TRAVEL DOCUMENTS",
             title:"Keep Your Important Documents Ready",
             alt:"Passport and travel documents"
         },
         {
-            image:"pic/al shrif/elshrif05",
+            image:"pic/al shrif/elshrif05.jpg",
             category:"SAVE & SHARE",
             title:"Save This Checklist Before You Go",
             alt:"Kaaba and travel checklist"
@@ -1488,25 +1494,25 @@ const brandProjects = [
 
     posts:[
         {
-            image:"pic/elwahy/elwahy1",
+            image:"pic/elwahy/elwahy1.jpg",
             category:"FOUNDATION INTRODUCTION",
             title:"Education and Training That Create Opportunity",
             alt:"EL-WAHY FOUNDATION introduction"
         },
         {
-            image:"pic/elwahy/elwahy2",
+            image:"pic/elwahy/elwahy2.jpg",
             category:"VOCATIONAL TRAINING",
             title:"Building Skills for the Future",
             alt:"Young people taking part in vocational training"
         },
         {
-            image:"pic/elwahy/elwahy3",
+            image:"pic/elwahy/elwahy3.jpg",
             category:"EDUCATIONAL SUPPORT",
             title:"Opening Doors Through Scholarships",
             alt:"Student holding books in a university library"
         },
         {
-            image:"pic/elwahy/elwahy4",
+            image:"pic/elwahy/elwahy4.jpg",
             category:"COMMUNITY EDUCATION",
             title:"Learning Has No Age Limit",
             alt:"Adult literacy and education session"
