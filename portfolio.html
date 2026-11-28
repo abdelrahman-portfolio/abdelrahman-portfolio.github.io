@@ -10,10 +10,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Abdelrahman Ahmed | Portfolio</title>
+<title>Abdelrahman Ahmed | Content Creator & Strategist</title>
+<meta name="description" content="Abdelrahman Ahmed, content creator and strategist. Content calendars, reels and campaigns for 35+ brands.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abdelrahman Ahmed | Content Creator & Strategist">
+<meta property="og:description" content="Abdelrahman Ahmed, content creator and strategist. Content calendars, reels and campaigns for 35+ brands.">
+<meta property="og:image" content="https://abdelrahman-portfolio.github.io/pic/WEB.jpeg">
+<meta property="og:url" content="https://abdelrahman-portfolio.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/jpeg" href="pic/WEBLOGO.jpeg">
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="image" href="pic/ana%20so8ir.jpg" media="(max-width: 750px)">
+<link rel="preload" as="image" href="pic/ana%20kber.jpg" media="(min-width: 751px)">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
 <style>
 :root {
@@ -1800,6 +1815,45 @@ footer strong {
 
 }
 
+header nav a.nav-contact{display:none}
+@media(max-width:750px){header nav a.nav-contact{display:block}}
+</style>
+<style id="motion-css">
+@media (prefers-reduced-motion:no-preference){
+html.js-motion .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rv-d,0ms);will-change:opacity,transform}
+html.js-motion .rv.rv-in{opacity:1;transform:none;will-change:auto}
+body{animation:pgIn .45s ease both}
+@keyframes pgIn{from{opacity:0}to{opacity:1}}
+:where(a[class*="cta"],.contact-link,.next-section a,button){transition:transform .25s ease,background .25s ease,color .25s ease}
+:where(.contact-link,.next-section a,a[class*="cta"]):hover{transform:translateY(-3px)}
+}
+</style>
+<script id="hero-pre">if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))document.documentElement.classList.add('js-hero');</script>
+<style id="hero-css">
+@media (prefers-reduced-motion:no-preference){
+.js-hero .hero h1,.js-hero .hero-role{visibility:hidden;animation:heroSafe 0s 3s forwards}
+@keyframes heroSafe{to{visibility:visible}}
+.hero .eyebrow{animation:eyeIn 1s .1s ease backwards}
+@keyframes eyeIn{from{opacity:0;letter-spacing:8px}to{opacity:1;letter-spacing:2px}}
+.hero h1 .ln{display:block;overflow:hidden;padding:.06em 0 .12em;margin:-.06em 0 -.12em}
+.hero h1 .ln>span{display:block;animation:lnUp 1.1s cubic-bezier(.16,1,.3,1) backwards}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.25s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.42s}
+@keyframes lnUp{from{transform:translateY(105%)}to{transform:none}}
+.hero-role .tw{opacity:0}.hero-role .tw.on{opacity:1}
+.hero-role .tcaret{display:inline-block;width:2px;height:1em;margin-left:3px;background:var(--yellow,#FFD21F);vertical-align:-2px;animation:blink .6s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-description{animation:hUp 1s 1.9s cubic-bezier(.16,1,.3,1) backwards}
+.hero-highlights{animation:hUp 1s 2.1s cubic-bezier(.16,1,.3,1) backwards}
+.hero-actions{animation:hUp 1s 2.3s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes hUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero-image-frame{animation:frameGrow 1.1s .2s cubic-bezier(.65,0,.2,1) backwards}
+@keyframes frameGrow{0%{scale:.1 .077;opacity:0}15%{opacity:1}100%{scale:1 1;opacity:1}}
+.hero-image{animation:curtain 1.5s 1.2s cubic-bezier(.45,0,.15,1) backwards}
+@keyframes curtain{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.hero-image img{animation:imgLoad 1.8s 1.2s cubic-bezier(.3,0,.2,1) backwards}
+@keyframes imgLoad{from{transform:scale(1.06)}to{transform:scale(1)}}
+}
 </style>
 </head>
 
@@ -1809,8 +1863,8 @@ footer strong {
 
 <header>
 
-  <a href="portfolio.html" class="logo">
-    <img src="pic/af.png" alt="AF Logo">
+  <a href="index.html" class="logo">
+    <img src="pic/af.png" alt="AF Logo" decoding="async">
   </a>
 
   <button
@@ -1829,11 +1883,12 @@ footer strong {
 
   <nav id="mobileNav">
 
-    <a href="portfolio.html" class="active" aria-current="page">Home</a>
+    <a href="index.html" class="active" aria-current="page">Home</a>
     <a href="posts.html">Posts</a>
     <a href="videos.html">Reels</a>
     <a href="campaigns.html">Campaigns</a>
     <a href="personal-branding.html">My Personal Branding</a>
+    <a href="index.html#contact" class="nav-contact">Contact Me</a>
 
   </nav>
 
@@ -1867,12 +1922,15 @@ footer strong {
     </div>
 
     <p class="hero-description">
-
-      I combine content strategy, creative thinking, and performance marketing insights to build campaigns that connect with audiences and support business objectives.
+      Content Creator &amp; Strategist with 3 years of experience across agency and freelance work, having worked with 35+ brands across the Egyptian, Gulf, and Palestinian markets.
 
       <br>
 
-      My work covers market research, audience analysis, brand positioning, content planning, campaign concepts, copywriting, scriptwriting, and creative direction.
+      I specialize in writing scripts, ad copy, and social media content in both Arabic and English, backed by performance marketing insights.
+
+      <br>
+
+      I turn brand goals into research-backed content strategies, creative concepts, and ready-to-shoot scripts, collaborating closely with designers, videographers, and editors from the initial brief to final publication.
 
     </p>
 
@@ -1936,11 +1994,16 @@ footer strong {
 
     <div class="hero-image">
 
-      <img
+      <picture>
+        <source media="(max-width: 750px)" srcset="pic/ana%20so8ir.jpg">
+        <img
         id="profilePhoto"
-        src="pic/pic 1.jpg"
+        src="pic/ana%20kber.jpg"
         alt="Abdelrahman Ahmed"
+        fetchpriority="high"
+        decoding="async"
       >
+      </picture>
 
     </div>
 
@@ -2001,9 +2064,6 @@ footer strong {
 
 <section class="content work-section" id="work">
 
-  <div class="section-label">
-    02 / SELECTED WORK
-  </div>
 
   <div class="work-intro">
 
@@ -2012,10 +2072,6 @@ footer strong {
       <span>creative work.</span>
     </h2>
 
-    <p>
-      A collection of creative projects, content strategies,
-      campaigns, and storytelling experiences.
-    </p>
 
   </div>
 
@@ -2108,7 +2164,7 @@ footer strong {
   <div class="industries-intro">
 
     <div class="section-label">
-      03 / INDUSTRIES I'VE WORKED WITH
+      INDUSTRIES I'VE WORKED WITH
     </div>
 
     <h2>
@@ -2693,5 +2749,60 @@ document.addEventListener("click", function(event) {
 
 </script>
 
+<script id="motion-js">
+(function(){
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+if(!('IntersectionObserver' in window))return;
+document.documentElement.classList.add('js-motion');
+var SEL='main section > *, main [class*="grid"] > *, main [class*="card"], .next-section > *, footer > *';
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('rv-in');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+function prep(root){
+ var list=(root.matches&&root.matches(SEL)?[root]:[]).concat([].slice.call(root.querySelectorAll?root.querySelectorAll(SEL):[]));
+ list.forEach(function(el){
+  if(el.dataset.rv||el.closest('.hero,header,nav,.mobile-menu-backdrop,.lightbox,.video-modal,[role="dialog"]'))return;
+  if(el.querySelector('.rv')&&!el.matches('[class*="card"]'))return;
+  el.dataset.rv='1';el.classList.add('rv');
+  var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;
+  el.style.setProperty('--rv-d',Math.min(sib%6,5)*70+'ms');
+  io.observe(el);
+ });
+}
+function init(){prep(document.body);
+ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1)prep(n);});});}).observe(document.body,{childList:true,subtree:true});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<script id="hero-js">
+(function(){
+var root=document.documentElement;
+function show(){root.classList.remove('js-hero');}
+if(!root.classList.contains('js-hero'))return;
+try{
+var h1=document.querySelector('.hero h1'),role=document.querySelector('.hero-role');
+if(!h1||!role){show();return;}
+var lines=h1.innerHTML.split(/<br\s*\/?>/i).map(function(t){return t.trim();}).filter(Boolean);
+h1.innerHTML=lines.map(function(t){return '<span class="ln"><span>'+t+'</span></span>';}).join('');
+var chars=[];
+(function walk(node){
+ [].slice.call(node.childNodes).forEach(function(n){
+  if(n.nodeType===3){
+   var txt=n.textContent.replace(/\s+/g,' ');
+   var frag=document.createDocumentFragment();
+   txt.split('').forEach(function(c){var s=document.createElement('span');s.className='tw';s.textContent=c;frag.appendChild(s);chars.push(s);});
+   n.parentNode.replaceChild(frag,n);
+  }else if(n.nodeType===1){walk(n);}
+ });
+})(role);
+root.classList.remove('js-hero');
+var k=0,step=Math.max(18,Math.min(30,1300/chars.length));
+setTimeout(function(){
+ var t=setInterval(function(){
+  if(k>=chars.length){clearInterval(t);return;}
+  chars[k++].classList.add('on');
+ },step);
+},1250);
+}catch(e){show();}
+})();
+</script>
 </body>
 </html>
