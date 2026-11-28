@@ -1057,6 +1057,7 @@ brandProjects.forEach((brand, brandIndexNumber) => {
         // Keep the play icon visible whenever the video is paused.
         reelVideo.controls = false;
         reelVideo.addEventListener("play", () => {
+            reelVideo.classList.add("cover-ready");
             playButton.hidden = true;
         });
         reelVideo.addEventListener("pause", () => {
@@ -1170,27 +1171,48 @@ function toggleVideo(video, playButton) {
         );
     }
 }
-/* INTERSECTION OBSERVER - VIDEO LOADING */
-if ("IntersectionObserver" in window) {
-    const videoObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    loadVideo(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            rootMargin:"450px 0px"
-        }
-    );
-    reelVideos.forEach(video => {
-        videoObserver.observe(video);
+/* ORDERED BACKGROUND LOAD + AUTO RETRY (max 1 retry per minute) */
+(function(){
+    var queue = Array.prototype.slice.call(reelVideos);
+    var lastRetry = 0;
+    function retry(v){
+        var n = Number(v.dataset.retries || 0);
+        if (n >= 3) return;
+        v.dataset.retries = String(n + 1);
+        var wait = Math.max(0, lastRetry + 60000 - Date.now());
+        lastRetry = Date.now() + wait;
+        setTimeout(function(){
+            var eb = v.parentElement.querySelector(".video-error");
+            var pb = v.parentElement.querySelector(".video-play-button");
+            if (eb) eb.hidden = true;
+            if (pb && v.paused) pb.hidden = false;
+            v.removeAttribute("src");
+            v.src = encodeURI(v.dataset.src);
+            v.preload = "metadata";
+            v.load();
+        }, wait);
+    }
+    reelVideos.forEach(function(v){
+        v.addEventListener("error", function(){ retry(v); });
     });
-} else {
-    reelVideos.forEach(loadVideo);
-}
+    function next(){
+        var v = queue.shift();
+        if (!v) return;
+        var done = false;
+        function fin(){
+            if (done) return;
+            done = true;
+            setTimeout(next, 150);
+        }
+        v.addEventListener("loadedmetadata", fin, {once:true});
+        v.addEventListener("error", fin, {once:true});
+        setTimeout(fin, 8000);
+        loadVideo(v);
+    }
+    function start(){ setTimeout(next, 800); }
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start);
+})();
 /* PAUSE OTHER VIDEOS */
 reelVideos.forEach(currentVideo => {
     currentVideo.addEventListener("play", () => {
