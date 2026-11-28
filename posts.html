@@ -434,7 +434,7 @@ button:focus-visible {
     }
 
     body {
-        padding-bottom:78px;
+        padding-bottom:0;
     }
 
     /* HEADER */
@@ -849,6 +849,9 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
   header nav a.active { color: #FFD21F; background: rgba(255,210,31,.07); border-radius: 8px; }
   header nav a:hover { color: #FFD21F; }
 }
+
+header nav a.nav-contact{display:none}
+@media(max-width:750px){header nav a.nav-contact{display:block}}
 </style>
 </head>
 
@@ -881,6 +884,7 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
     <a href="videos.html">Reels</a>
     <a href="campaigns.html">Campaigns</a>
     <a href="personal-branding.html">My Personal Branding</a>
+    <a href="index.html#contact" class="nav-contact">Contact Me</a>
 
   </nav>
 
@@ -913,7 +917,7 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
         More Than Just Posts<br>
         <span>Ideas Worth Sharing</span>
     </h2>
-    <a href="index.html#contact" class="closing-cta">LET'S TALK ↗</a>
+    <a href="index.html#contact" class="closing-cta">LET'S WORK TOGETHER ↗</a>
 </section>
 
 </main>
@@ -922,10 +926,6 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
     <strong>ABDELRAHMAN AHMED</strong>
     <span>CONTENT CREATOR · COPYWRITER · CONTENT STRATEGIST</span>
 </footer>
-
-<div class="mobile-contact-bar">
-    <a href="index.html#contact">LET'S TALK ↗</a>
-</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
     <button class="lightbox-close" id="lightboxClose">×</button>

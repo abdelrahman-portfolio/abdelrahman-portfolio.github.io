@@ -403,7 +403,7 @@ footer strong {
 /* MOBILE */
 @media(max-width:750px) {
     html { scroll-padding-top:85px; }
-    body { padding-bottom:78px; }
+    body { padding-bottom:0; }
     header {
         height:68px;
         min-height:68px;
@@ -734,6 +734,9 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
 }
 .hero-desc-short{display:none !important}
 @media (max-width:750px){.hero-desc-long{display:none !important}.hero-desc-short{display:block !important}}
+
+header nav a.nav-contact{display:none}
+@media(max-width:750px){header nav a.nav-contact{display:block}}
 </style>
 </head>
 <body>
@@ -765,6 +768,7 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
     <a href="videos.html" class="active" aria-current="page">Reels</a>
     <a href="campaigns.html">Campaigns</a>
     <a href="personal-branding.html">My Personal Branding</a>
+    <a href="index.html#contact" class="nav-contact">Contact Me</a>
 
   </nav>
 
@@ -805,7 +809,7 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
         <span>Ideas Worth Watching</span>
     </h2>
     <a href="index.html#contact" class="closing-cta">
-        LET'S TALK ↗
+        LET'S WORK TOGETHER ↗
     </a>
 </section>
 </main>
@@ -815,14 +819,7 @@ header .contact-link:hover { background: #FFD21F; color: #080808 !important; }
     <span>
         CONTENT CREATOR · COPYWRITER · CONTENT STRATEGIST
     </span>
-    <span>© 2026</span>
 </footer>
-<!-- FIXED MOBILE CONTACT -->
-<div class="mobile-contact-bar">
-    <a href="index.html#contact">
-        LET'S TALK ↗
-    </a>
-</div>
 <script>
 /* MOBILE NAVIGATION */
 const menuToggle = document.getElementById("menuToggle");
