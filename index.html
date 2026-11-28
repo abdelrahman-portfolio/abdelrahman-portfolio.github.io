@@ -1818,6 +1818,16 @@ footer strong {
 header nav a.nav-contact{display:none}
 @media(max-width:750px){header nav a.nav-contact{display:block}}
 </style>
+<style id="motion-css">
+@media (prefers-reduced-motion:no-preference){
+html.js-motion .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rv-d,0ms);will-change:opacity,transform}
+html.js-motion .rv.rv-in{opacity:1;transform:none;will-change:auto}
+body{animation:pgIn .45s ease both}
+@keyframes pgIn{from{opacity:0}to{opacity:1}}
+:where(a[class*="cta"],.contact-link,.next-section a,button){transition:transform .25s ease,background .25s ease,color .25s ease}
+:where(.contact-link,.next-section a,a[class*="cta"]):hover{transform:translateY(-3px)}
+}
+</style>
 </head>
 
 <body>
@@ -2712,5 +2722,28 @@ document.addEventListener("click", function(event) {
 
 </script>
 
+<script id="motion-js">
+(function(){
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+if(!('IntersectionObserver' in window))return;
+document.documentElement.classList.add('js-motion');
+var SEL='main section > *, main [class*="grid"] > *, main [class*="card"], .next-section > *, footer > *';
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('rv-in');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+function prep(root){
+ var list=(root.matches&&root.matches(SEL)?[root]:[]).concat([].slice.call(root.querySelectorAll?root.querySelectorAll(SEL):[]));
+ list.forEach(function(el){
+  if(el.dataset.rv||el.closest('header,nav,.mobile-menu-backdrop,.lightbox,.video-modal,[role="dialog"]'))return;
+  if(el.querySelector('.rv')&&!el.matches('[class*="card"]'))return;
+  el.dataset.rv='1';el.classList.add('rv');
+  var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;
+  el.style.setProperty('--rv-d',Math.min(sib%6,5)*70+'ms');
+  io.observe(el);
+ });
+}
+function init(){prep(document.body);
+ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1)prep(n);});});}).observe(document.body,{childList:true,subtree:true});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
